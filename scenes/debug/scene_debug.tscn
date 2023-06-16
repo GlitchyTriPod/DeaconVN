@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53yvtcn8j4s"]
+
+[ext_resource type="Texture2D" uid="uid://bnf4345xb0ol3" path="res://res/img/bg/debug/Inkopolis_2.jpg" id="1_l0v37"]
+
+[node name="scene_debug" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
+texture = ExtResource("1_l0v37")
+
+[node name="Label" type="Label" parent="Background"]
+modulate = Color(1, 1, 1, 0.372549)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 178.0
+offset_right = 5.0
+offset_bottom = 204.0
+rotation = -0.192284
+scale = Vector2(23.1432, 25.4977)
+text = "DEBUG"
+
+[node name="CharacterPositions" type="Node2D" parent="."]
+
+[node name="FarLeft" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(213, 310)
+
+[node name="Left" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(427, 310)
+
+[node name="Center" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(640, 310)
+
+[node name="Right" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(853, 310)
+
+[node name="FarRight" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(1067, 310)
+
+[node name="CharacterContainer" type="Node2D" parent="."]

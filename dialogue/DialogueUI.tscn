@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://8qh5lo6nsmdj"]
 
 [ext_resource type="Script" path="res://dialogue/DialogueUI.gd" id="1_4afek"]
-[ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug.png" id="2_lrym3"]
+[ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_sp74p"]
 [ext_resource type="Shader" path="res://res/shader/DialogueUI.gdshader" id="3_rsi2g"]
 [ext_resource type="Texture2D" uid="uid://dg8e7wtrl67la" path="res://res/img/texture/notebook_paper.jpg" id="4_ql6ud"]
 [ext_resource type="Theme" uid="uid://cyyjojvna3xqg" path="res://res/themes/def_theme.tres" id="5_ve51h"]
@@ -17,12 +17,13 @@ shader_parameter/modulate_ratio = 0.85
 script = ExtResource("1_4afek")
 
 [node name="debug_img" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.137255)
 offset_left = -1.0
 offset_top = -68.0
 offset_right = 1279.0
 offset_bottom = 652.0
-texture = ExtResource("2_lrym3")
+texture = ExtResource("2_sp74p")
 stretch_mode = 2
 
 [node name="Dia_Box" type="TextureRect" parent="."]

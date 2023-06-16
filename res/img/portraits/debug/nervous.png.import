@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kwpo2d0jtxun"
-path="res://.godot/imported/debug.png-480a551091f8f861b6ce07f8bcdef5ac.ctex"
+uid="uid://dd37rqdu87ns0"
+path="res://.godot/imported/nervous.png-2d2f01b9097e361d6a306ef687a53d6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/img/portraits/debug.png"
-dest_files=["res://.godot/imported/debug.png-480a551091f8f861b6ce07f8bcdef5ac.ctex"]
+source_file="res://res/img/portraits/debug/nervous.png"
+dest_files=["res://.godot/imported/nervous.png-2d2f01b9097e361d6a306ef687a53d6a.ctex"]
 
 [params]
 

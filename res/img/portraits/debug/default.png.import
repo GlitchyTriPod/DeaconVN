@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drxjq8onnor60"
-path="res://.godot/imported/deacon_test2.png-04acc98b60b104cd5177c9871a67af14.ctex"
+uid="uid://btrf5utppx8fc"
+path="res://.godot/imported/default.png-66b9d34d5802149a8b2ef134329c931d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/img/portraits/deacon_test2.png"
-dest_files=["res://.godot/imported/deacon_test2.png-04acc98b60b104cd5177c9871a67af14.ctex"]
+source_file="res://res/img/portraits/debug/default.png"
+dest_files=["res://.godot/imported/default.png-66b9d34d5802149a8b2ef134329c931d.ctex"]
 
 [params]
 
