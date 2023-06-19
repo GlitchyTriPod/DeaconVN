@@ -1,17 +1,55 @@
 ~ this_is_a_node_title
 
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: and here s another
-Nathan: and another
-Nathan: and heres another really really really really really really really long one
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again 
-	=> this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
+do enter_character("debug", "right", "default", "center", "left")
+do wait(1.0)
+
+Debug: Wait...
+
+do change_expression("debug", "default", "left")
+do wait(0.7)
+do change_expression("debug", "default", "right")
+do wait(0.7)
+
+do change_expression("debug", "nervous")
+
+Debug: Wait-wait-wait!
+
+do change_expression("debug", "nervous", "left")
+do wait(0.5)
+do change_expression("debug", "nervous", "right")
+do wait(0.5)
+
+do change_expression("debug", "distress")
+
+Debug: What do you mean I'm a debug character?!
+Debug: I'm Deacon! I'm Deacon?!
+
+do move_character("debug", "OffscreenRight")
+
+Debug: Aaaaaah!!!
+
+do change_expression("debug", "distress", "left")
+do wait(0.31)
+do move_character("debug", "OffscreenLeft")
+
+Debug: AAAAAAH!!!
+
+do change_expression("debug", "nervous", "right")
+do wait(0.3)
+do move_character("debug", "FarLeft")
+
+Debug: [i]*huff*[/i]
+
+do move_character("debug", "Left")
+
+Debug: [i]*huff*[/i]
+
+do move_character("debug", "center")
+
+Debug: [i]*wheeze*[/i]
+
+do change_expression("debug", "default")
+
+Debug: ...I give up...
 
 => END

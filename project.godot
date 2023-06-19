@@ -19,10 +19,13 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 CharacterManager="*res://autoload/CharacterManager.tscn"
+Flags="*res://autoload/Flags.gd"
+SceneManager="*res://autoload/SceneManager.tscn"
 
 [dialogue_manager]
 
 general/wrap_lines=true
+general/states=["SceneManager"]
 
 [display]
 

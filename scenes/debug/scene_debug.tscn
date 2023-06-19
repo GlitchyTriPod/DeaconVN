@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b53yvtcn8j4s"]
+[gd_scene load_steps=4 format=3 uid="uid://b53yvtcn8j4s"]
 
 [ext_resource type="Texture2D" uid="uid://bnf4345xb0ol3" path="res://res/img/bg/debug/Inkopolis_2.jpg" id="1_l0v37"]
+[ext_resource type="Script" path="res://scenes/Scene.gd" id="1_q0d0x"]
+[ext_resource type="Resource" uid="uid://b0d0qcb3ymp1u" path="res://dialogue/testing/testing.dialogue" id="2_3i3ie"]
 
 [node name="scene_debug" type="Node2D"]
+script = ExtResource("1_q0d0x")
+startup_dialogue_resource = ExtResource("2_3i3ie")
+startup_dialogue_title = "testing"
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(0.231373, 0.231373, 0.231373, 1)
@@ -20,6 +25,10 @@ scale = Vector2(23.1432, 25.4977)
 text = "DEBUG"
 
 [node name="CharacterPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="OffscreenLeft" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(-266, 310)
 
 [node name="FarLeft" type="Marker2D" parent="CharacterPositions"]
 position = Vector2(213, 310)
@@ -36,4 +45,8 @@ position = Vector2(853, 310)
 [node name="FarRight" type="Marker2D" parent="CharacterPositions"]
 position = Vector2(1067, 310)
 
+[node name="OffscreenRight" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(1496, 310)
+
 [node name="CharacterContainer" type="Node2D" parent="."]
+unique_name_in_owner = true

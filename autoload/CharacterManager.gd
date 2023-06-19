@@ -4,7 +4,7 @@ extends Node
 
 var character_label_colors: Dictionary = {}
 
-func get_character(char_name: String):
+func get_character(char_name: String) -> Character:
 	var character = self.characters.get(char_name).instantiate()
 	self.character_label_colors[char_name] = character.character_label_color
 	return character

@@ -1,5 +1,8 @@
 class_name DialogueUI extends CanvasLayer
 
+signal ready_for_dialogue
+
+@onready var dialogue_box: TextureRect = %Dia_Box
 @onready var character_name: RichTextLabel = %Name
 @onready var dialogue_label = %DialogueLabel
 @onready var response_box = %ResponseBox
@@ -19,14 +22,15 @@ var dialogue_line: DialogueLine:
 	set(next_line):
 
 		if not next_line:
-				queue_free()
-				return
+			delete_self()
+			return
 
 		dialogue_line = next_line
 		
 		self.character_name.visible = !dialogue_line.character.is_empty()
 		self.character_name.text = tr(dialogue_line.character, "dialogue")
-		#TODO: color name label for specific characters
+		self.character_name.modulate = get_node("/root/CharacterManager") \
+			.get_character_color(dialogue_line.character.to_lower())
 
 		# dialogue_label.modulate.a = 0
 		dialogue_label.dialogue_line = dialogue_line
@@ -70,19 +74,27 @@ var dialogue_line: DialogueLine:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.dialogue_box.material.set_shader_parameter("transparent_ratio", 3.5)
+
 	self.response_template.hide()
 	self.response_box.hide()
 	self.character_name.text = ""
 	self.dialogue_label.text = ""
 
-	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	var tween = create_tween()
+	await tween.tween_method( \
+		tween_method_helper, \
+		3.5,
+		0.075,
+		1
+	).set_ease(Tween.EASE_IN_OUT).finished
 
-#called when any input is given
-# func _input(event):
-# 	if event.is_action_pressed("INPUT_progress_dialogue"):
-# 		if self.dialogue_line.responses.size() == 0 && \
-# 			self.dialogue_finished_typing:
-# 			next(self.dialogue_line.next_id)
+	self.emit_signal("ready_for_dialogue")
+
+	# Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+
+func tween_method_helper(val):
+	self.dialogue_box.material.set_shader_parameter("transparent_ratio", val)
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
@@ -107,9 +119,8 @@ func disable_response_buttons():
 
 ## SIGNALS
 
-func _on_mutated(_mutation: Dictionary) -> void:
-	pass
-
+# func _on_mutated(_mutation: Dictionary) -> void:
+# 	pass
 
 func _on_dialogue_label_finished_typing():
 	self.dialogue_finished_typing = true
@@ -123,3 +134,27 @@ func _on_response_button_up(item: Button):
 	var index = int(item_name) - 1#.erase(item_name.length - 1, 1))
 	disable_response_buttons()
 	next(self.dialogue_line.responses[index].next_id)
+
+func delete_self():
+	
+	var tween = create_tween()
+	tween.tween_property(self.dialogue_label, 
+		"modulate",
+		Color("#ffffff00"), \
+		0.5
+	)
+
+	tween.tween_property(self.character_name, \
+		"modulate",
+		Color("#ffffff00"), \
+		0.5
+	)
+
+	await tween.tween_method( \
+		tween_method_helper, \
+		0.075,
+		3.5,
+		1
+	).set_ease(Tween.EASE_IN_OUT).finished
+
+	queue_free()
