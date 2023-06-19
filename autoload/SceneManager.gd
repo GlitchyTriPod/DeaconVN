@@ -6,6 +6,8 @@ signal load_complete
 
 var current_scene: Scene
 
+## Scene Manipulation
+
 func get_scene(scene_name: String):
 	return self.scenes.get(scene_name).instantiate()
 
@@ -39,6 +41,12 @@ func load_scene(scene_name: String):
 	).finished
 
 	emit_signal("load_complete")
+
+func display_cg(cg_name: String, fade_time: float = 0.0):
+	self.current_scene.display_cg(cg_name, fade_time)
+
+func hide_cg(cg_name: String, fade_time: float = 0.0):
+	self.current_scene.hide_cg(cg_name, fade_time)
 
 # Dialogue manipulation
 
@@ -89,7 +97,24 @@ func enter_character(
 			Color("#ffffffff"),
 			0.3).finished
 
-	character.change_position(screen_pos)
+	# character.change_position(screen_pos)
+	move_character(char_name, screen_pos)
+
+func exit_character(char_name: String, exit_side: String = "fade"):
+	var character = self.current_scene.get_character(char_name)
+	if exit_side == "fade":
+		var tween = create_tween()
+		await tween.tween_property(character, "modulate", Color("#ffffff00"), 0.3).finished
+		character.queue_free()
+		return
+
+	if exit_side.to_lower() == "left" || exit_side.to_lower() == "right":
+		exit_side = "offscreen" + exit_side
+
+	move_character(char_name, exit_side)
+	await character.character_moved
+	character.queue_free()
+
 func change_expression(char_name: String, expression: String = "default", facing: String = "na"):	
 	var character: Character = self.current_scene.get_character(char_name)
 
@@ -100,3 +125,4 @@ func change_expression(char_name: String, expression: String = "default", facing
 
 func move_character(char_name: String, position: Variant):
 	self.current_scene.move_character(char_name, position)
+	

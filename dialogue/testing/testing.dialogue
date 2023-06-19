@@ -1,5 +1,6 @@
 ~ this_is_a_node_title
 
+
 do enter_character("debug", "right", "default", "center", "left")
 do wait(1.0)
 
@@ -48,8 +49,10 @@ do move_character("debug", "center")
 
 Debug: [i]*wheeze*[/i]
 
-do change_expression("debug", "default")
+do change_expression("debug", "grungus")
 
 Debug: ...I give up...
+
+do exit_character("debug", "right")
 
 => END

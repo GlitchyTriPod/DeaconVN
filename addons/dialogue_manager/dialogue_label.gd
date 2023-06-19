@@ -22,6 +22,7 @@ var dialogue_line: DialogueLine:
 		dialogue_line = next_dialogue_line
 		custom_minimum_size = Vector2.ZERO
 		text = dialogue_line.text
+		get_node("/root/AudioManager").set_text_sound_from_char_name(dialogue_line.character.to_lower())
 	get:
 		return dialogue_line
 
@@ -37,6 +38,9 @@ var is_typing: bool = false:
 	get:
 		return is_typing
 
+func _ready():
+	var audio_manager = get_node("/root/AudioManager")
+	self.spoke.connect(audio_manager.play_text_sound)
 
 func _process(delta: float) -> void:
 	if self.is_typing:
@@ -64,7 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		self.is_typing = false
 		finished_typing.emit()
 
-	elif !self.is_typing and event.is_action_pressed(skip_action):
+	elif !self.is_typing and visible_ratio >= 1 and event.is_action_pressed(skip_action):
 		continue_dialogue.emit()
 
 

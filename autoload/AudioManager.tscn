@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqdl2a0flgkso"]
+
+[ext_resource type="Script" path="res://autoload/AudioManager.gd" id="1_bjvct"]
+[ext_resource type="AudioStream" uid="uid://0wy7q1pjguaw" path="res://snd/sfx/sfx-blipfemale.wav" id="2_omh78"]
+[ext_resource type="AudioStream" uid="uid://7kyypjqkrs0w" path="res://snd/sfx/sfx-blipmale.wav" id="3_6cbmt"]
+[ext_resource type="AudioStream" uid="uid://6dp4i4h0n6r" path="res://snd/sfx/sfx-typwriter.wav" id="4_tgpyc"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_bjvct")
+text_sounds = {
+"high": ExtResource("2_omh78"),
+"low": ExtResource("3_6cbmt"),
+"type": ExtResource("4_tgpyc")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+bus = &"SFX"
+
+[node name="TextSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+volume_db = -8.872
+bus = &"SFX"

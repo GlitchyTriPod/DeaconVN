@@ -1,19 +1,35 @@
 @tool
 class_name Character extends Node2D
 
+signal character_moved
+
 @export var character_name: String
+
+@export var expression_list: Dictionary = { "default" : NodePath("Expressions/default")}
 
 @export var current_expression: String = "default":
 	set(expression):
-		if self.expressions == null:
-			await self.ready
+		if !self.expression_list.has(expression):
+			expression = "default"
+		
+		for item in self.expression_list.values():
+			var node: Sprite2D
+			var node_path: NodePath
+			if item is Dictionary:
+				node_path = item[self.face_direction]
+			else:
+				node_path = item
 
-		if current_expression != expression:
-			for child_exp in self.expressions.get_children():
-				if child_exp.name != expression:
-					child_exp.visible = false
-				else:
-					child_exp.visible = true
+			node = self.get_node(node_path)
+			if node == null:
+				await self.ready
+				node = self.get_node(item)
+
+			if node.name != expression:
+				node.visible = false
+			else:
+				node.visible = true
+
 		current_expression = expression
 
 @export_enum("left", "right") var face_direction: String = "right":
@@ -62,12 +78,14 @@ func change_direction(snap: bool = false):
 
 func change_position(pos: Vector2):
 	var tween = create_tween()
-	tween.tween_property( \
+	await tween.tween_property( \
 		self, \
 		"position", \
 		pos,
 		0.3 \
-	).set_ease(Tween.EASE_IN_OUT)
+	).set_ease(Tween.EASE_IN_OUT).finished
+
+	emit_signal("character_moved")
 	
 ## SIGNAL
 

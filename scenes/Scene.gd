@@ -6,6 +6,8 @@ const DialogueUI = preload("res://dialogue/DialogueUI.tscn")
 @export var startup_dialogue_resource: Resource
 @export var startup_dialogue_title: String = ""
 
+@onready var cgs: Array [ Node ] = %CGs.get_children()
+
 var ui: DialogueUI
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +25,6 @@ func _ready():
 
 	self.ui.start(dia_res, startup_dialogue_title)
 	# pass # Replace with function body.
-
 
 func get_character(char_name: String):
 	for item in %CharacterContainer.get_children():
@@ -43,6 +44,37 @@ func move_character(char_name: String, target_pos: Variant):
 	if target_pos is String:
 		pos = get_character_position(target_pos)
 	else:
-		pos = Vector2(target_pos, 310)
+		pos = Vector2(target_pos.x, 310)
 
 	character.change_position(pos)
+	await character.character_moved
+
+func display_cg(cg_name: String, fade_time: float = 0.0):
+	var cg: Control
+	for node in self.cgs:
+		if node.name == cg_name:
+			cg = node
+			break
+
+	var tween = create_tween()
+	await tween.tween_property(
+		cg,
+		"modulate",
+		Color("#ffffff"),
+		fade_time
+	).finished
+
+func hide_cg(cg_name: String, fade_time: float = 0.0):
+	var cg: Control
+	for node in self.cgs:
+		if node.name == cg_name:
+			cg = node
+			break
+
+	var tween = create_tween()
+	await tween.tween_property(
+		cg,
+		"modulate",
+		Color("#ffffff00"),
+		fade_time
+	).finished

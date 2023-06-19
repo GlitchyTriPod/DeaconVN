@@ -1,6 +1,15 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://w6orus0e73lf"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://w6orus0e73lf"]
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_f4sw1"]
+resource_name = "EQ"
+band_db/32_hz = -24.6
+band_db/100_hz = -12.3
+band_db/3200_hz = -13.9
+band_db/10000_hz = -25.8
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectEQ_f4sw1")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false

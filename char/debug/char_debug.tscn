@@ -9,6 +9,11 @@
 [node name="char_debug" type="Node2D"]
 script = ExtResource("1_7nt5g")
 character_name = "debug"
+expression_list = {
+"default": NodePath("Expressions/default"),
+"distress": NodePath("Expressions/distress"),
+"nervous": NodePath("Expressions/nervous")
+}
 
 [node name="Size_reference" type="Sprite2D" parent="."]
 unique_name_in_owner = true
