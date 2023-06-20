@@ -42,6 +42,8 @@ func load_scene(scene_name: String):
 
 	emit_signal("load_complete")
 
+## CGs
+
 func display_cg(cg_name: String, fade_time: float = 0.0):
 	self.current_scene.display_cg(cg_name, fade_time)
 

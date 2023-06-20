@@ -22,6 +22,10 @@ var dialogue_line: DialogueLine:
 		dialogue_line = next_dialogue_line
 		custom_minimum_size = Vector2.ZERO
 		text = dialogue_line.text
+		if text.begins_with(">"):
+			self.modulate = Color("#88b8eb")
+		else:
+			self.modulate = Color("#ffffff")
 		get_node("/root/AudioManager").set_text_sound_from_char_name(dialogue_line.character.to_lower())
 	get:
 		return dialogue_line

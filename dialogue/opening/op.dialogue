@@ -1,0 +1,51 @@
+~ opening_scene
+
+> Six months ago, the Turf War community found itself in upheaval.
+
+> The famed professional team, the Mystic Hues, found themselves embroiled in scandal.
+
+> As pressure mounted, the team fractured, and their beloved captain, Ikataro Tachibana, vanished without a trace…
+
+> ...
+
+> But everything’s okay now.
+
+> ?
+
+> Ikataro eventually found his way back, the team reunited, and, basically, all’s well that ends well.
+
+> Right?
+
+> Not for one Deacon Bleu.
+
+do display_cg("op1")
+do play_sfx("shock2")
+do play_music("grossberg", 1.2)
+do wait(1.2)
+
+> You see, the reason the Mystic Hues found themselves in such hot water was, in part, because of Deacon.
+
+> Deacon was a semi-prolific Turf War player who found himself subbing in on any number of teams.
+
+> He also kept a dark secret… 
+
+> ...Under orders of the local crime lord, he would purposefully lose.
+
+> In other words, he would fix matches!
+
+> When the public caught on to this scheme, Deacon found himself with no choice but to lay low for a while.
+
+> The suspicion would eventually pass(?), but for the time being, Deacon was out of a job.
+
+> More importantly, he was out a paycheck.
+
+> Which is an even bigger problem, because the previously mentioned crime syndicate…
+
+> He owed them a *lot* of money. Like, a LOT.
+
+do enter_character("deacon", "right", "default", "OffscreenRight")
+
+Deacon: I need money...
+
+
+=> END

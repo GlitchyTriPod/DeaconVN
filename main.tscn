@@ -4,7 +4,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3n615")
-default_scene = "debug"
+default_scene = "opening"
 
 [node name="Overlay" type="ColorRect" parent="."]
 top_level = true

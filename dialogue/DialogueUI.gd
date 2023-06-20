@@ -27,10 +27,12 @@ var dialogue_line: DialogueLine:
 
 		dialogue_line = next_line
 		
-		self.character_name.visible = !dialogue_line.character.is_empty()
 		self.character_name.text = tr(dialogue_line.character, "dialogue")
 		self.character_name.modulate = get_node("/root/CharacterManager") \
 			.get_character_color(dialogue_line.character.to_lower())
+		self.character_name.modulate.a = 0 if dialogue_line.character.is_empty() else 1
+		if self.character_name.text.is_empty():
+				self.character_name.text = "0"
 
 		# dialogue_label.modulate.a = 0
 		dialogue_label.dialogue_line = dialogue_line

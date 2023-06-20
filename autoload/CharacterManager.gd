@@ -19,5 +19,5 @@ func get_character_color(char_name:String):
 func get_character_text_sound(char_name: String):
 	if self.character_text_sounds.has(char_name):
 		return self.character_text_sounds[char_name]
-	return "low"
+	return "type"
 

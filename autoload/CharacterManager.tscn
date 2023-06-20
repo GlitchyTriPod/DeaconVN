@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://beve30175wtli"]
+[gd_scene load_steps=4 format=3 uid="uid://beve30175wtli"]
 
 [ext_resource type="Script" path="res://autoload/CharacterManager.gd" id="1_ix2bn"]
 [ext_resource type="PackedScene" uid="uid://d2xv2gvmj8fbc" path="res://char/debug/char_debug.tscn" id="2_b5l3c"]
+[ext_resource type="PackedScene" uid="uid://duqaor6ag0bwa" path="res://char/deacon.tscn" id="3_o83g0"]
 
 [node name="CharacterManager" type="Node"]
 script = ExtResource("1_ix2bn")
 characters = {
+"deacon": ExtResource("3_o83g0"),
 "debug": ExtResource("2_b5l3c")
 }
