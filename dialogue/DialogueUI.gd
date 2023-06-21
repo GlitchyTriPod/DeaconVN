@@ -1,6 +1,7 @@
 class_name DialogueUI extends CanvasLayer
 
 signal ready_for_dialogue
+signal dialogue_exiting
 
 @onready var dialogue_box: TextureRect = %Dia_Box
 @onready var character_name: RichTextLabel = %Name
@@ -100,6 +101,7 @@ func tween_method_helper(val):
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+	
 	self.temporary_game_states = extra_game_states
 	# is_waiting_for_input = false
 	self.dialogue_res = dialogue_resource
@@ -158,5 +160,7 @@ func delete_self():
 		3.5,
 		1
 	).set_ease(Tween.EASE_IN_OUT).finished
+
+	self.dialogue_exiting.emit()
 
 	queue_free()

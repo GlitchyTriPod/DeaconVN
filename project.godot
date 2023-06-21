@@ -19,14 +19,14 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 CharacterManager="*res://autoload/CharacterManager.tscn"
-Flags="*res://autoload/Flags.gd"
 SceneManager="*res://autoload/SceneManager.tscn"
 AudioManager="*res://autoload/AudioManager.tscn"
+FlagManager="*res://autoload/FlagManager.tscn"
 
 [dialogue_manager]
 
 general/wrap_lines=true
-general/states=["SceneManager", "AudioManager"]
+general/states=["SceneManager", "AudioManager", "FlagManager"]
 
 [display]
 
@@ -75,7 +75,7 @@ INPUT_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/testing/testing.dialogue", "res://dialogue/opening/op.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/testing/testing.dialogue", "res://dialogue/opening/op.dialogue", "res://dialogue/inkos_apt.dialogue")
 
 [rendering]
 

@@ -42,6 +42,9 @@ func load_scene(scene_name: String):
 
 	emit_signal("load_complete")
 
+func load_dialogue(title: String, resource: Resource):
+	self.current_scene.load_dialogue(title, resource)
+
 ## CGs
 
 func display_cg(cg_name: String, fade_time: float = 0.0):

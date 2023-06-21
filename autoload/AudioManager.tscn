@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqdl2a0flgkso"]
+[gd_scene load_steps=10 format=3 uid="uid://cqdl2a0flgkso"]
 
 [ext_resource type="Script" path="res://autoload/AudioManager.gd" id="1_bjvct"]
 [ext_resource type="AudioStream" uid="uid://0wy7q1pjguaw" path="res://snd/sfx/sfx-blipfemale.wav" id="2_omh78"]
 [ext_resource type="AudioStream" uid="uid://7kyypjqkrs0w" path="res://snd/sfx/sfx-blipmale.wav" id="3_6cbmt"]
 [ext_resource type="AudioStream" uid="uid://6dp4i4h0n6r" path="res://snd/sfx/sfx-typwriter.wav" id="4_tgpyc"]
 [ext_resource type="AudioStream" uid="uid://bfrtuo7ga4am1" path="res://snd/sfx/sfx-shock2.wav" id="5_km14p"]
+[ext_resource type="AudioStream" uid="uid://bcidgk2t547aq" path="res://snd/sfx/sfx-selectblip.wav" id="6_g2r8y"]
 [ext_resource type="AudioStream" uid="uid://c0gnkykbn7i5k" path="res://snd/music/1-19. Marvin Grossberg ~ Age, Regret, Retribution.mp3" id="6_ysawj"]
+[ext_resource type="AudioStream" uid="uid://du3g5vgno7b8t" path="res://snd/sfx/sfx-selectblip2.wav" id="7_ek5si"]
+[ext_resource type="AudioStream" uid="uid://l2eps6r52l67" path="res://snd/sfx/sfx-whack.wav" id="8_eng5c"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" groups=["Persist"]]
 script = ExtResource("1_bjvct")
 text_sounds = {
 "high": ExtResource("2_omh78"),
@@ -15,7 +18,10 @@ text_sounds = {
 "type": ExtResource("4_tgpyc")
 }
 sound_effects = {
-"shock2": ExtResource("5_km14p")
+"selectblip": ExtResource("6_g2r8y"),
+"selectblip2": ExtResource("7_ek5si"),
+"shock2": ExtResource("5_km14p"),
+"whack": ExtResource("8_eng5c")
 }
 music_library = {
 "grossberg": ExtResource("6_ysawj")
@@ -31,5 +37,5 @@ bus = &"SFX"
 
 [node name="TextSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-volume_db = -8.872
+volume_db = -4.436
 bus = &"SFX"

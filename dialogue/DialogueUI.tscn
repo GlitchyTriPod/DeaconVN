@@ -86,7 +86,6 @@ deselect_on_focus_loss_enabled = false
 visible_characters_behavior = 1
 script = ExtResource("6_vha0q")
 skip_action = "INPUT_progress_dialogue"
-seconds_per_step = 0.1
 pause_at_characters = ""
 
 [node name="ResponseBox" type="Control" parent="."]

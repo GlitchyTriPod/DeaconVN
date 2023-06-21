@@ -3,7 +3,7 @@ class_name Scene extends Node2D
 const DialogueSettings = preload("res://addons/dialogue_manager/components/settings.gd")
 const DialogueUI = preload("res://dialogue/DialogueUI.tscn")
 
-@export var startup_dialogue_resource: Resource
+@export var startup_dialogue_resource: DialogueResource
 @export var startup_dialogue_title: String = ""
 
 @onready var cgs: Array [ Node ] = %CGs.get_children()
@@ -14,17 +14,18 @@ var ui: DialogueUI
 func _ready():
 	await get_node("/root/SceneManager").load_complete
 
+	load_dialogue(self.startup_dialogue_title, self.startup_dialogue_resource)
+
+func load_dialogue(title: String, res: Resource):
 	self.ui = DialogueUI.instantiate()
 	self.add_child(self.ui)
 
-	var dia_res : DialogueResource = load(startup_dialogue_resource.resource_path)
+	# var dia_res : DialogueResource = load(startup_dialogue_resource.resource_path)
 
 	await ui.ready_for_dialogue
 
 	await get_tree().create_timer(0.3).timeout
-
-	self.ui.start(dia_res, startup_dialogue_title)
-	# pass # Replace with function body.
+	self.ui.start(res, title)
 
 func get_character(char_name: String):
 	for item in %CharacterContainer.get_children():

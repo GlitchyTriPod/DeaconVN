@@ -1,0 +1,92 @@
+~ inkos_apt
+
+do wait(1.2)
+do enter_character("deacon", "left", "default", "right")
+do enter_character("brie", "right", "default", "left")
+
+Brie: Bleu. What do you think you’re doing?
+
+do change_expression("deacon", "nervous")
+
+Deacon: Ah.[do wait(0.3)] Uh.[do wait(0.3)] R-[do wait(0.3)]relaxing? In my home?
+
+Brie: First of all, this isn’t even your home, you’re just staying here.
+
+> This is Brie De Meaux, a high ranking member of the infamous Splatville Triad, and currently overseeing Deacon’s massive amount of debt. 
+
+> She takes great pleasure in seeing him squirm.
+
+Brie: Second of all, are you aware of what day it is?
+
+- It's {{day_of_week}}?
+	do change_expression("deacon", "default")
+	Deacon: Is it {{day_of_week}}?
+
+	Brie: …
+
+	Brie: Hey, you’re actually right, Somehow.
+
+	Deacon: Huh? I’m right?
+	do change_expression("deacon", "nervous")
+	Deacon: Is my luck finally changing…?!
+
+	Brie: …Absolutely not.
+	
+- Squidmas?
+	do change_expression("deacon", "default")
+	Deacon: Is it Squidmas? I don’t think I can afford to buy a present this year…
+
+	Brie: It’s too early for that. Splatoween is in a few weeks.
+
+	Brie: Perhaps I should put your name down for the Triad secret santa…
+	do change_expression("deacon", "distress")
+	Deacon: P-[do wait(0.3)]please don’t! I don’t think mobsters will like coupons…
+	
+- Your birthday?
+
+	Deacon: Don’t tell me…
+	do change_expression("deacon", "distress")
+	Deacon: It’s your birthday?! I-I’m so sorry! I forgot!
+
+	Brie: …
+	do change_expression("deacon", "nervous")
+	Deacon: H-HAPPY BIRTHDAAAY!?
+
+	Brie: …Disgusting.
+
+Brie: Clearly, you have absolutely no idea what day it is.
+
+Brie: Nor do you have any idea of the danger you’re in.
+do change_expression("deacon", "nervous")
+Deacon: D-D-D-Danger?!
+
+Brie: Bleu… today is…
+
+Brie: …Payment day.
+do change_expression("deacon", "default")
+Deacon: Pay… ment…?
+
+Deacon: !!!
+do change_expression("deacon", "nervous")
+Deacon: Aah!
+
+Brie: Finally getting it?
+do change_expression("deacon", "distress")
+Deacon: Wait. Wai-wai-wai-wai-wait! Wait!
+
+Deacon: I can’t do Turf War matches! We have to lay low right now! You said so yourself!
+
+Brie: You’re absolutely right.
+
+Brie: …But I didn’t tell you to stop making money.
+do change_expression("deacon", "nervous")
+Deacon: Well, what the hell am I supposed to do about that? How am I going to make any kind of money in just one day?!
+
+Brie: I don’t know. [do wait(1.0)] And I don’t care.
+
+Brie: I’ll be nice, and give you until midnight. I’ll be at the Dhar estate if you need me. You know where it is.
+
+> Just as she’s about to leave, a friendlier face makes an appearance.
+
+
+=> END

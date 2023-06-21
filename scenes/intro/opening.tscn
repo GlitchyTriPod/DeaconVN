@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwpgib7awvfd8"]
+[gd_scene load_steps=6 format=3 uid="uid://dwpgib7awvfd8"]
 
-[ext_resource type="Script" path="res://scenes/Scene.gd" id="1_31ywo"]
+[ext_resource type="Script" path="res://scenes/intro/opening_scene.gd" id="1_th5e2"]
 [ext_resource type="Resource" uid="uid://fbntna13j4tc" path="res://dialogue/opening/op.dialogue" id="2_4gnx3"]
 [ext_resource type="Texture2D" uid="uid://c15y7dqb7p1kb" path="res://res/img/bg/debug/intro1.jpg" id="3_88r2f"]
+[ext_resource type="Texture2D" uid="uid://cybhx1pbulhx1" path="res://res/img/bg/debug/intro2.jpg" id="4_70uot"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hqxx0"]
 
-[node name="scene_opening" type="Node2D"]
-script = ExtResource("1_31ywo")
+[node name="scene_opening" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_th5e2")
 startup_dialogue_resource = ExtResource("2_4gnx3")
 startup_dialogue_title = "opening_scene"
 
@@ -34,6 +35,15 @@ offset_top = -119.0
 offset_right = 1262.0
 offset_bottom = 583.0
 texture = ExtResource("3_88r2f")
+
+[node name="op2" type="TextureRect" parent="CGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 384.0
+offset_top = -119.0
+offset_right = 1262.0
+offset_bottom = 583.0
+texture = ExtResource("4_70uot")
 
 [node name="CharacterPositions" type="Node2D" parent="."]
 unique_name_in_owner = true

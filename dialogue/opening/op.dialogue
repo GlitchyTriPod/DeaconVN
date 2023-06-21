@@ -41,11 +41,27 @@ do wait(1.2)
 
 > Which is an even bigger problem, because the previously mentioned crime syndicate…
 
-> He owed them a *lot* of money. Like, a LOT.
-
+> He owed them a *lot* of money. Like, a LOT. 
 do enter_character("deacon", "right", "default", "OffscreenRight")
 
 Deacon: I need money...
 
+=> END
+
+~ new_game
+
+do wait(1.5)
+do display_cg("op2")
+do play_sfx("whack")
+do wait(1.2)
+do hide_cg("op1")
+
+do enter_character("brie", "right", "default", "offscreenleft")
+
+Brie: BLEU!!!
+
+Deacon: AAAH!
+
+do load_scene("inkos_apt")
 
 => END

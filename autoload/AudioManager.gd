@@ -8,6 +8,8 @@ extends Node
 @onready var sfx_node: AudioStreamPlayer = %SFX
 @onready var text_sound_node: AudioStreamPlayer = %TextSound
 
+var counter =  false
+
 # Called when the node enters the scene tree for the first time.
 # func _ready():
 # 	pass # Replace with function body.
@@ -28,7 +30,12 @@ func set_text_sound_from_char_name(char_name: String):
 	)
 
 func play_text_sound(_letter: String = "", _letter_index: int = 0, _speed: float = 0.0):
-	self.text_sound_node.play()
+
+	if counter == false:
+		counter = true
+		self.text_sound_node.play()
+		return
+	counter = false
 
 func play_music(music_name: String, fade_in: float = 0.0):
 	self.music_node.stream = self.music_library.get(music_name)
