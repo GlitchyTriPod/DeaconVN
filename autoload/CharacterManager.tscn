@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://beve30175wtli"]
+[gd_scene load_steps=6 format=3 uid="uid://beve30175wtli"]
 
 [ext_resource type="Script" path="res://autoload/CharacterManager.gd" id="1_ix2bn"]
 [ext_resource type="PackedScene" uid="uid://d2xv2gvmj8fbc" path="res://char/debug/char_debug.tscn" id="2_b5l3c"]
 [ext_resource type="PackedScene" uid="uid://duqaor6ag0bwa" path="res://char/deacon.tscn" id="3_o83g0"]
 [ext_resource type="PackedScene" uid="uid://uw47dfqieo2w" path="res://char/brie.tscn" id="4_ghxe3"]
+[ext_resource type="PackedScene" uid="uid://rnd8h43lfs4l" path="res://char/inko.tscn" id="5_cv0q8"]
 
 [node name="CharacterManager" type="Node" groups=["Persist"]]
 script = ExtResource("1_ix2bn")
 characters = {
 "brie": ExtResource("4_ghxe3"),
 "deacon": ExtResource("3_o83g0"),
-"debug": ExtResource("2_b5l3c")
+"debug": ExtResource("2_b5l3c"),
+"inko": ExtResource("5_cv0q8")
 }

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://rnd8h43lfs4l"]
+
+[ext_resource type="Script" path="res://char/Character.gd" id="1_rx5r7"]
+[ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_e7io5"]
+[ext_resource type="Texture2D" uid="uid://yglgwabtnt2e" path="res://res/img/portraits/inko/inko_shocked.png" id="3_k1a2u"]
+[ext_resource type="Texture2D" uid="uid://c3h8tm5uml0ht" path="res://res/img/portraits/inko/inko_default (1).png" id="3_t5dac"]
+[ext_resource type="Texture2D" uid="uid://dnksut4g02kq7" path="res://res/img/portraits/inko/inko_suggestion.png" id="5_wreat"]
+[ext_resource type="Texture2D" uid="uid://kgriurufimiq" path="res://res/img/portraits/inko/inko_thinking.png" id="6_itkuc"]
+
+[node name="char_debug" type="Node2D"]
+script = ExtResource("1_rx5r7")
+character_name = "inko"
+expression_list = {
+"default": NodePath("Expressions/default"),
+"shocked": NodePath("Expressions/shocked"),
+"suggestion": NodePath("Expressions/suggest"),
+"thinking": NodePath("Expressions/thinking")
+}
+character_label_color = Color(0.819608, 0.490196, 0, 1)
+text_sound = "high"
+
+[node name="Size_reference" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.0470588)
+texture = ExtResource("2_e7io5")
+
+[node name="Expressions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="default" type="Sprite2D" parent="Expressions"]
+texture = ExtResource("3_t5dac")
+
+[node name="shocked" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("3_k1a2u")
+
+[node name="suggest" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("5_wreat")
+
+[node name="thinking" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("6_itkuc")
