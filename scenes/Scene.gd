@@ -3,6 +3,7 @@ class_name Scene extends Node2D
 const DialogueSettings = preload("res://addons/dialogue_manager/components/settings.gd")
 const DialogueUI = preload("res://dialogue/DialogueUI.tscn")
 
+@export var scene_name: String = "debug"
 @export var startup_dialogue_resource: DialogueResource
 @export var startup_dialogue_title: String = ""
 
@@ -14,9 +15,12 @@ var ui: DialogueUI
 func _ready():
 	await get_node("/root/SceneManager").load_complete
 
-	load_dialogue(self.startup_dialogue_title, self.startup_dialogue_resource)
+	load_dialogue()
 
-func load_dialogue(title: String, res: Resource):
+func load_dialogue(
+	title: String = self.startup_dialogue_title, 
+	res: Resource = self.startup_dialogue_resource
+	):
 	self.ui = DialogueUI.instantiate()
 	self.add_child(self.ui)
 
@@ -45,7 +49,7 @@ func move_character(char_name: String, target_pos: Variant):
 	if target_pos is String:
 		pos = get_character_position(target_pos)
 	else:
-		pos = Vector2(target_pos.x, 310)
+		pos = Vector2(target_pos, 310)
 
 	character.change_position(pos)
 	await character.character_moved

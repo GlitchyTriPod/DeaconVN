@@ -10,6 +10,12 @@
 [node name="char_debug" type="Node2D"]
 script = ExtResource("1_yntge")
 character_name = "brie"
+expression_list = {
+"angry": NodePath("Expressions/angry"),
+"annoyed": NodePath("Expressions/annoyed"),
+"default": NodePath("Expressions/default"),
+"pointing": NodePath("Expressions/pointing")
+}
 character_label_color = Color(0, 0.490196, 0.290196, 1)
 text_sound = "high"
 

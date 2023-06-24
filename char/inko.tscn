@@ -13,7 +13,7 @@ character_name = "inko"
 expression_list = {
 "default": NodePath("Expressions/default"),
 "shocked": NodePath("Expressions/shocked"),
-"suggestion": NodePath("Expressions/suggest"),
+"suggestion": NodePath("Expressions/suggestion"),
 "thinking": NodePath("Expressions/thinking")
 }
 character_label_color = Color(0.819608, 0.490196, 0, 1)
@@ -35,7 +35,7 @@ texture = ExtResource("3_t5dac")
 visible = false
 texture = ExtResource("3_k1a2u")
 
-[node name="suggest" type="Sprite2D" parent="Expressions"]
+[node name="suggestion" type="Sprite2D" parent="Expressions"]
 visible = false
 texture = ExtResource("5_wreat")
 

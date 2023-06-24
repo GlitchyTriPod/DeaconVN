@@ -2,7 +2,10 @@ extends Node
 
 signal load_complete
 
+const MoveMenu = preload("res://menu/MoveMenu.tscn")
+
 @export var scenes: Dictionary
+@export var movable_scenes: Dictionary
 
 var current_scene: Scene
 
@@ -45,6 +48,13 @@ func load_scene(scene_name: String):
 func load_dialogue(title: String, resource: Resource):
 	self.current_scene.load_dialogue(title, resource)
 
+## Menus
+
+func load_move_menu():
+	var mm = MoveMenu.instantiate()
+
+	self.current_scene.add_child(mm)
+
 ## CGs
 
 func display_cg(cg_name: String, fade_time: float = 0.0):
@@ -54,7 +64,6 @@ func hide_cg(cg_name: String, fade_time: float = 0.0):
 	self.current_scene.hide_cg(cg_name, fade_time)
 
 # Dialogue manipulation
-
 
 # Character manipulation
 
@@ -103,7 +112,7 @@ func enter_character(
 			0.3).finished
 
 	# character.change_position(screen_pos)
-	move_character(char_name, screen_pos)
+	move_character(char_name, screen_pos.x)
 
 func exit_character(char_name: String, exit_side: String = "fade"):
 	var character = self.current_scene.get_character(char_name)

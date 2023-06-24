@@ -23,11 +23,11 @@ var asked_inko_for_help = false
 
 var inko_suggestions = [
 	{
-		"text": "Why not see what The Palette Cleansers are up to. You work as their stagehand sometimes don't cha?",
+		"text": "Why not see what The Palette Cleansers are up to? You work as their stagehand sometimes, don't cha?",
 		"read": false
 	},
 	{
-		"text": "Maybe your sister could hook you up with somethin' at the library.",
+		"text": "Maybe your sister could hook you up with somethin' at the library?",
 		"read": false
 	},
 	{
@@ -47,7 +47,8 @@ var inko_suggestion: String:
 			for i in self.inko_suggestions:
 				if i.read == false:
 					i.read = true
-					return i.text).call()
+					return i.text
+			return "Sorry, Dee. I'm fresh outta ideas. Maybe I'll come up with something later.").call()
 
 func set_variable(var_name: String, value: Variant):
 	self[var_name] = value

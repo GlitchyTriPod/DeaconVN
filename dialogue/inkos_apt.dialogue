@@ -4,8 +4,8 @@ if watched_inko_apt_intro == true
 	=> inko_apt_default
 
 do wait(1.2)
-do enter_character("deacon", "left", "default", "right", "right")
-do enter_character("brie", "right", "default", "left", "left")
+do enter_character("deacon", "left", "distress", 940, "right")
+do enter_character("brie", "right", "angry", 340, "left")
 do wait(0.3)
 
 Brie: Bleu. What do you think you’re doing?
@@ -14,12 +14,14 @@ do change_expression("deacon", "nervous")
 
 Deacon: Ah. Uh. R-relaxing? In my home?
 
+do change_expression("brie", "pointing")
 Brie: First of all, this isn’t even your home, you’re just staying here.
 
 > This is Brie De Meaux, a high ranking member of the infamous Splatville Triad, and currently overseeing Deacon’s massive amount of debt. 
 
 > She takes great pleasure in seeing him squirm.
 
+do change_expression("brie", "default")
 Brie: Second of all, are you aware of what day it is?
 
 - It's {{day_of_week}}?
@@ -27,13 +29,16 @@ Brie: Second of all, are you aware of what day it is?
 	Deacon: Is it {{day_of_week}}?
 
 	Brie: …
-
-	Brie: Hey, you’re actually right, Somehow.
+	
+	do change_expression("brie", "annoyed")
+	Brie: You’re actually right, Somehow.
 
 	Deacon: Huh? I’m right?
+	
 	do change_expression("deacon", "nervous")
 	Deacon: Is my luck finally changing…?!
-
+	
+	do change_expression("brie", "default")
 	Brie: …Absolutely not.
 	
 - Squidmas?
@@ -43,6 +48,7 @@ Brie: Second of all, are you aware of what day it is?
 	Brie: It’s too early for that. Splatoween is in a few weeks.
 
 	Brie: Perhaps I should put your name down for the Triad secret santa…
+	
 	do change_expression("deacon", "distress")
 	Deacon: P-please don’t! I don’t think mobsters will like coupons…
 	
@@ -52,21 +58,26 @@ Brie: Second of all, are you aware of what day it is?
 	do change_expression("deacon", "distress")
 	Deacon: It’s your birthday?! I-I’m so sorry! I forgot!
 
+	do change_expression("brie", "angry")
 	Brie: …
+	
 	do change_expression("deacon", "nervous")
 	Deacon: H-HAPPY BIRTHDAAAY!?
-
+	
+	do change_expression("brie", "annoyed")
 	Brie: …Disgusting.
 
+do change_expression("brie", "pointing")
 Brie: Clearly, you have absolutely no idea what day it is.
 
 Brie: Nor do you have any idea of the danger you’re in.
 do change_expression("deacon", "nervous")
 Deacon: D-D-D-Danger?!
 
+do change_expression("brie", "default")
 Brie: Bleu… today is…
-
 Brie: …Payment day.
+
 do change_expression("deacon", "default")
 Deacon: Pay… ment…?
 
@@ -77,6 +88,7 @@ do play_sfx("stab")
 Deacon: Aah!
 
 Brie: Finally getting it?
+
 do change_expression("deacon", "distress")
 Deacon: Wait. Wai-wai-wai-wai-wait! Wait!
 
@@ -84,10 +96,13 @@ Deacon: I can’t do Turf War matches! We have to lay low right now! You said so
 
 Brie: You’re absolutely right.
 
+do change_expression("brie", "pointing")
 Brie: …But I didn’t tell you to stop making money.
+
 do change_expression("deacon", "nervous")
 Deacon: Well, what the hell am I supposed to do about that? How am I going to make any kind of money in just one day?!
 
+do change_expression("brie", "annoyed")
 Brie: I don’t know. And I don’t care.
 
 Brie: I’ll be nice, and give you until midnight. I’ll be at the Dhar estate if you need me. You know where it is.
@@ -96,6 +111,7 @@ Brie: I’ll be nice, and give you until midnight. I’ll be at the Dhar estate 
 
 do enter_character("inko", "right", "shocked", "farleft", "left")
 do wait(1.0)
+do move_character("brie", 470)
 do change_expression("brie", "default", "left")
 do wait(0.3)
 
@@ -105,7 +121,7 @@ do exit_character("brie", "left")
 do change_expression("deacon", "default")
 > Brie takes her leave.
 
-do move_character("inko", "left")
+do move_character("inko", 340)
 
 do play_sfx("whack")
 Inko: What. 
@@ -133,10 +149,14 @@ Inko: Do you know how expensive doors are?!
 	do change_expression("deacon", "thinking")
 	Deacon: Yeah, actually I do.
 
+	do change_expression("inko", "default")
 	Inko: …You do?
+	
 	do change_expression("deacon", "tired")
 	Deacon: Sorry, I lied. I don’t.
 	do change_expression("deacon", "default")
+	
+	do change_expression("inko", "shocked")
 	
 - No
 	
@@ -150,7 +170,9 @@ Deacon: Sorry Koko, doors don’t really stand much of a chance against a really
 do change_expression("deacon", "tired")
 Deacon: I’d pay for it, but…
 
+do change_expression("inko", "default")
 Inko: Yeah, yeah, I get it. We’re all broke as a joke.
+
 do change_expression("deacon", "default")
 Deacon: Well, there’s that, but I also need to make some quick cash.
 
@@ -166,15 +188,20 @@ Deacon: [i]Not more.[/i]
 do change_expression("deacon", "default")
 Deacon: But it is kinda urgent.
 
+do change_expression("inko", "suggetion")
 Inko: Hm… Well, if it needs to be quick, you should probably just hit the streets.
 
 Inko: I’m sure there’s plenty of people who could give you a quick buck doing whatever.
+
 do change_expression("deacon", "tired")
 Deacon: Ehh? Walking?
 
 Deacon: My feet already hurt just thinking about it…
 
+do change_expression("inko", "shocked")
 Inko: A lot more than just your feet are gonna hurt if you don’t pay your mob money back.
+do change_expression("inko", "suggestion")
+
 do change_expression("deacon", "default")
 Inko: …Actually, now that I think about it, Cafeccino might be willing to give you some work.
 
@@ -183,7 +210,7 @@ Inko: They hired Wulfesh, so they’ll take just about anyone.
 Inko: Why not try starting there?
 
 Deacon: …I guess it’s worth a shot.
-
+do change_expression("inko", "default")
 Inko: If you get stuck, lemme know. I’ll try to think of some other things you could try.
 
 
@@ -208,9 +235,11 @@ do set_variable("watched_inko_apt_intro", true)
 > You are in Inko's apartment. What do you do?
 
 - Hit the streets.
+	do load_move_menu()
+	=> END
 - Ask Inko for suggestions.
-	do enter_character("deacon", "left", "default", "right", "right")
-	do enter_character("inko", "right", "default", "left", "left")
+	do enter_character("deacon", "left", "default", 940, "right")
+	do enter_character("inko", "right", "default", 340, "left")
 	
 	if asked_inko_for_help == false	
 		Deacon: …
@@ -222,7 +251,9 @@ do set_variable("watched_inko_apt_intro", true)
 	else
 		Deacon: Got anything else?
 
+	do change_expression("inko", "thinking")
 	Inko: Let’s see…
+	do change_expression("inko", "suggestion")
 
 	Inko: {{inko_suggestion}}
 	

@@ -12,3 +12,15 @@ scenes = {
 "inkos_apt": ExtResource("4_hftbh"),
 "opening": ExtResource("3_g1swp")
 }
+movable_scenes = {
+"cafeccino": {
+"img": null,
+"name": "Cafeccino",
+"unlocked": true
+},
+"inkos_apt": {
+"img": null,
+"name": "Inko's Apartment",
+"unlocked": true
+}
+}
