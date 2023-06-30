@@ -39,7 +39,7 @@ func load_scene_information():
 			continue
 
 		var button = self.scene_button_template.duplicate()
-		button.scene_name = dict.keys()[i]
+		button.scene_name = scenes.keys()[i]
 		if dict.img == null:
 			button.texture = self.move_button_default_texture
 		else:
@@ -48,6 +48,7 @@ func load_scene_information():
 		button.text = dict.name
 
 		button.visible = true
+		button.move_button_up.connect(self._on_template_move_button_up)
 		self.scene_container.add_child(button)
 
 func exit_menu():
@@ -67,4 +68,9 @@ func exit_menu():
 ## SIGNAL
 
 func _on_button_button_up():
+	exit_menu()
+
+func _on_template_move_button_up(scene_name: String):
+	get_node("/root/AudioManager").play_sfx("selectblip2")
+	get_node("/root/SceneManager").load_scene(scene_name)
 	exit_menu()

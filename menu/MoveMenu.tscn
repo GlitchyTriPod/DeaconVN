@@ -95,4 +95,5 @@ theme = ExtResource("1_uuca8")
 theme_override_font_sizes/font_size = 55
 text = "< Back"
 
+[connection signal="move_button_up" from="Control/VBox/ScrollContainer/SceneContainer/Template" to="." method="_on_template_move_button_up"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
