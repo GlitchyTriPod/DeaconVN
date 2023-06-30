@@ -38,7 +38,12 @@ func play_text_sound(_letter: String = "", _letter_index: int = 0, _speed: float
 	counter = false
 
 func play_music(music_name: String, fade_in: float = 0.0):
-	self.music_node.stream = self.music_library.get(music_name)
+	var stream = self.music_library.get(music_name)
+
+	if stream == self.music_node.stream:
+		return
+
+	self.music_node.stream = stream
 	self.music_node.volume_db = -60.0
 	self.music_node.play()
 

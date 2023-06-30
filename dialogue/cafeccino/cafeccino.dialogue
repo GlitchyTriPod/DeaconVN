@@ -1,0 +1,303 @@
+~ cafeccino
+
+do play_music("godot")
+
+if watched_cafe_intro == false
+	=> cafe_intro
+
+
+=> END
+
+
+
+
+~ cafe_intro
+
+do enter_character("deacon", "left", "default", 940, "right")
+
+> The Cafe is bustling with life when Deacon enters. However, judging from the quick pace that orders are being completed, rush hour is yet to come.
+
+> The scent of coffee wafts from the kitchen…
+
+do change_expression("deacon", "tired")
+
+Deacon: [i]I hate coffee.[/i]
+
+> Deacon waits his turn in line, trying his best to put on a happy, professional, please-hire-me expression.
+
+> He doesn’t succeed.
+
+do enter_character("ginger", "right", "default", 340, "left")
+
+Ginger: Hello, welcome to Cafeccino! May I take your… uh…
+
+do change_expression("ginger", "sad")
+
+Deacon: I need a job.
+
+do change_expression("ginger", "bashful")
+
+Ginger: O-Oh? Do you now?
+
+Deacon: …
+
+do change_expression("ginger", "sad")
+
+Ginger: Are you, um… Interested in working at Cafeccino?
+
+Deacon: Yeah. 
+
+do change_expression("deacon", "nervous")
+do change_expression("ginger", "bashful")
+
+Deacon: I mean, uh, yes! Yes. I’m… Very interested in working at. Uh. Cafe-chee-no.
+
+Ginger: Oh, good! If you’ll please give me a moment, I’ll be right with you as soon as I’m done with these orders.
+
+Deacon: Gotcha. I-I mean, thank you!
+
+do fade_to_black()
+do exit_character("deacon")
+do exit_character("ginger")
+
+do wait(1.2)
+
+> Several minutes later...
+
+do wait(0.7)
+
+do fade_from_black()
+
+do enter_character("ginger", "right", "default", 340, "left")
+do enter_character("deacon", "left", "default", 940, "right")
+
+Ginger: Oh wow, Your resume is really diverse Mr. Bleu.
+
+do change_expression("ginger", "bashful")
+
+Ginger: Like, [i]really[/i] diverse.
+
+> This is Ginger, co-owner and lead barista of Cafeccino. She’s nice but more jittery than her espresso fueled patrons. 
+
+> Everything frightens her, and superstition is her personal bible. Some think she’s too paranoid, but it can’t be denied she has freakishly good intuition. 
+
+> Fortunes told by Ginger always rang true.
+
+do change_expression("ginger", "default")
+
+Ginger: Um, can I ask why you wanted to work here?
+
+- Answer Honestly
+
+	do change_expression("deacon", "tired")
+	
+	Deacon: I need the money.
+	
+	do change_expression("ginger", "nervous")
+
+	Ginger: That’s… fair.
+	
+	do change_expression("ginger", "bashful")
+
+	Ginger: Everyone has their struggles. I admire your honesty.
+	
+	do change_expression("deacon", "default")
+
+	Deacon: Thank… you?
+
+	Ginger: Okay, you’re hired!
+	
+	do change_expression("deacon", "nervous")
+
+	Deacon: What, just like that?
+	
+	do change_expression("deacon", "default")
+
+	Ginger: Yep! We’re kind of short-staffed today, so we could really use the help.
+	
+	do change_expression("ginger", "default")
+
+	Ginger: Also…
+	
+- Answer Dishonestly
+
+	do change_expression("deacon", "thinking")
+
+	Deacon: I just. Really, [i]REALLY[/i] love coffee!
+	
+	do change_expression("deacon", "nervous")
+
+	Deacon: Can’t get enough of the stuff. Total coffee-holic. Coffee-head.
+	
+	do change_expression("ginger", "bashful")
+
+	Ginger: Oh, wow! You really love coffee that much?
+	
+	do change_expression("ginger", "default")
+
+	Ginger: Personally, I love a good medium-light roast. I know it’s simple, but with the right bean, there’s endless amounts of flavor diversity!
+
+	Deacon: Uh. Yeah.
+	
+	do change_expression("ginger", "bashful")
+
+	Ginger: What’s your favorite?
+	
+	- Answer the best you can.
+	
+		do change_expression("deacon", "thinking")
+	
+		Deacon: Well, *I* really like the, uh…
+		
+		do change_expression("deacon", "nervous")
+		do change_expression("ginger", "default")
+
+		Deacon: …The super… dark… chocolate… lat-tay… frap-py… uh… ex-presso… with 5, uh, shots of…
+		
+		do change_expression("deacon", "tired")
+
+		Deacon: …Bean. Sauce?
+		
+		do change_expression("ginger", "sad")
+
+		Ginger: …
+
+		Deacon: …
+		
+		do change_expression("deacon", "sad")
+
+		Deacon: …I’ll see myself out.
+		
+		do change_expression("ginger", "nervous")
+
+		Ginger: No! Wait!
+
+		Ginger: You must stop drinking that!
+		
+		do change_expression("deacon", "default")
+
+		Deacon: Huh?
+
+		Ginger: The Super Dark Chocolate Latte Frappe Espresso?!
+
+		Ginger: With [i]five[/i] shots of bean sauce?!?!
+
+		Ginger: Nobody has lived for more than five months drinking that! You gotta give up that habit!
+		
+		do change_expression("deacon", "nervous")
+
+		Deacon: Whuh?
+		
+	- Give up.
+	
+		do change_expression("deacon", "sad")
+	
+		Deacon: Sorry, I feel bad after seeing how enthusiastic you are about coffee. I actually don’t like it that much.
+		
+		do change_expression("deacon", "tired")
+
+		Deacon: I really need this job, and I wanted to impress you.
+		
+		do change_expression("ginger", "bashful")
+
+		Ginger: Oh, that’s no problem. We also serve tea here. Do you like tea?
+		
+		do change_expression("deacon", "default")
+
+		Deacon: …With a lot of sugar, yeah.
+		
+		do change_expression("ginger", "default")
+
+		Ginger: Well, as long as it’s not [i]too[/i] much sugar.
+
+		Deacon: It’s probably too much sugar.
+		
+		do change_expression("ginger", "sad")
+
+		Ginger: Ah, well… Having too much sugar is not very good for your health…
+
+		Deacon: …
+
+		do change_expression("ginger", "nervous")
+
+		Ginger: …In fact, it could be downright catastrophic!
+		
+		do change_expression("deacon", "annoyed")
+
+		Deacon: …Could it, now?
+		
+	do change_expression("ginger", "nervous")
+	do change_expression("deacon", "default")
+	
+	Ginger: You seem like a really nice boy, and I would be just devastated if something happened to you!
+
+	Ginger: Look, I’ll take you in as a temporary employee, but you must promise to give up this self destructive habit!
+
+	Deacon: ...Sure.
+	
+	do change_expression("ginger", "default")
+
+	Ginger: Oh, thank goodness!
+
+do change_expression("ginger", "default")
+
+Ginger: I sense a terrible aura around you.
+
+do change_expression("deacon", "nervous")
+
+Deacon: …A what now?
+
+do change_expression("ginger", "default")
+
+Ginger: If I let you just walk out that door, something horrific would’ve happened to you.
+
+Ginger: Take these.
+
+> Ginger hands Deacon a Cafeccino apron, as well as a small trinket.
+
+do change_expression("deacon", "default")
+
+Deacon: What’s with this keychain?
+
+do change_expression("deacon", "bashful")
+
+Ginger: It’s a good luck charm! If you keep it on your person, I’m sure that curse of yours will be gone in no time!
+
+do change_expression("deacon", "nervous")
+
+Deacon: C-curse?
+
+do change_expression("ginger", "default")
+
+Ginger: Yeah, you’re cursed, aren’t you?
+
+Deacon: I mean… maybe? I never really believed that story Maple used to tell me.
+
+do change_expression("ginger", "bashful")
+
+Ginger: They say there’s power in belief.
+
+do change_expression("deacon", "thinking")
+
+Deacon: Uh, who says that?
+
+do change_expression("ginger", "default")
+
+Ginger: They do.
+
+do change_expression("deacon", "default")
+
+Deacon: Who?
+
+Ginger: Them.
+
+do change_expression("deacon", "tired")
+
+Deacon: Uh…
+
+Ginger: Let’s get you started!
+
+do exit_character("deacon")
+do exit_character("ginger")
+
+=> END

@@ -18,7 +18,7 @@ extends Node
 			_:
 				return "Saturday"
 
-var watched_inko_apt_intro = false
+var watched_inko_apt_intro = true
 var asked_inko_for_help = false
 
 var inko_suggestions = [
@@ -49,6 +49,8 @@ var inko_suggestion: String:
 					i.read = true
 					return i.text
 			return "Sorry, Dee. I'm fresh outta ideas. Maybe I'll come up with something later.").call()
+
+var watched_cafe_intro = false
 
 func set_variable(var_name: String, value: Variant):
 	self[var_name] = value

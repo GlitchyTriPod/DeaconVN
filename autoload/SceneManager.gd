@@ -45,6 +45,31 @@ func load_scene(scene_name: String):
 
 	emit_signal("load_complete")
 
+func fade_to_black():
+	var main = get_node("/root/Main/scene_debug/Background")
+
+	var tween = create_tween()
+	
+	# await
+	tween.tween_property(
+		main,
+		"modulate",
+		Color("#000000ff"),
+		.7
+	)
+
+func fade_from_black():
+	var main = get_node("/root/Main/scene_debug/Background")
+
+	var tween = create_tween()
+	
+	tween.tween_property(
+		main,
+		"modulate",
+		Color("#ffffffff"),
+		.7
+	)
+
 func load_dialogue(title: String, resource: Resource):
 	self.current_scene.load_dialogue(title, resource)
 
