@@ -83,3 +83,23 @@ func hide_cg(cg_name: String, fade_time: float = 0.0):
 		Color("#ffffff00"),
 		fade_time
 	).finished
+
+func shake_cg(cg_name: String, shake_amount: float, shake_time: float):
+	var cg
+	for node in self.cgs:
+		if node.name == cg_name:
+			cg = node
+			break
+
+	var tween = create_tween()
+	cg.shake_amount = shake_amount
+	await tween.tween_property(
+		cg,
+		"shake_amount",
+		0.0,
+		shake_time
+	).finished
+	
+
+func set_text_speed(spd: float = 0.0):
+	self.ui.set_text_speed_modifier(spd)

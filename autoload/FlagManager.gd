@@ -1,5 +1,10 @@
 extends Node
 
+func set_variable(var_name: String, value: Variant):
+	self[var_name] = value
+
+# INKOS APT
+
 @onready var day_of_week: String:
 	get:
 		match Time.get_date_dict_from_system().weekday:
@@ -50,7 +55,22 @@ var inko_suggestion: String:
 					return i.text
 			return "Sorry, Dee. I'm fresh outta ideas. Maybe I'll come up with something later.").call()
 
+# CAFECCINO
+
+var counter_customers = [
+	"taro_bonbon",
+	"cherry",
+	# "maple"
+]
+
+var customer
+
+func get_customer():
+	self.counter_customers.shuffle()
+	if self.customer == self.counter_customers[0]:
+		self.customer = self.counter_customers[1]
+	else:
+		self.customer = self.counter_customers[0]
+
 var watched_cafe_intro = false
 
-func set_variable(var_name: String, value: Variant):
-	self[var_name] = value

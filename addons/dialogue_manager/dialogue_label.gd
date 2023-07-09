@@ -16,6 +16,10 @@ signal continue_dialogue()
 ## Automatically have a brief pause when these characters are encountered
 @export var pause_at_characters: String = ".?!"
 
+var text_speed_modifier: float = 1.0:
+	get:
+		return self.seconds_per_step * text_speed_modifier
+
 
 var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
@@ -88,7 +92,7 @@ func type_out() -> void:
 
 	if get_total_character_count() == 0:
 		self.is_typing = false
-	elif seconds_per_step == 0:
+	elif self.text_speed_modifier == 0:
 		# Run any inline mutations
 		for i in range(0, get_total_character_count()):
 			dialogue_line.mutate_inline_mutations(i)
@@ -109,7 +113,7 @@ func type_next(delta: float, seconds_needed: float) -> void:
 
 	# Pause on characters like "."
 	if visible_characters > 0 and get_parsed_text()[visible_characters - 1] in pause_at_characters.split():
-		additional_waiting_seconds += seconds_per_step * 15
+		additional_waiting_seconds += self.text_speed_modifier * 15
 
 	# Pause at literal [wait] directives
 	if last_wait_index != visible_characters and additional_waiting_seconds > 0:
@@ -121,7 +125,7 @@ func type_next(delta: float, seconds_needed: float) -> void:
 		if visible_characters <= get_total_character_count():
 			spoke.emit(get_parsed_text()[visible_characters - 1], visible_characters - 1, dialogue_line.get_speed(visible_characters))
 		# See if there's time to type out some more in this frame
-		seconds_needed += seconds_per_step * (1.0 / dialogue_line.get_speed(visible_characters))
+		seconds_needed += self.text_speed_modifier * (1.0 / dialogue_line.get_speed(visible_characters))
 		if seconds_needed > delta:
 			waiting_seconds += seconds_needed
 		else:

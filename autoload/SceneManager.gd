@@ -87,7 +87,13 @@ func display_cg(cg_name: String, fade_time: float = 0.0):
 func hide_cg(cg_name: String, fade_time: float = 0.0):
 	self.current_scene.hide_cg(cg_name, fade_time)
 
+func shake_cg(cg_name: String, shake_amount: float, shake_time: float):
+	self.current_scene.shake_cg(cg_name, shake_amount, shake_time)
+
 # Dialogue manipulation
+
+func set_text_speed(spd: float):
+	self.current_scene.set_text_speed(spd)
 
 # Character manipulation
 
@@ -140,6 +146,8 @@ func enter_character(
 
 func exit_character(char_name: String, exit_side: String = "fade"):
 	var character = self.current_scene.get_character(char_name)
+	if character == null:
+		return
 	if exit_side == "fade":
 		var tween = create_tween()
 		await tween.tween_property(character, "modulate", Color("#ffffff00"), 0.3).finished
@@ -164,3 +172,7 @@ func change_expression(char_name: String, expression: String = "default", facing
 func move_character(char_name: String, position: Variant):
 	self.current_scene.move_character(char_name, position)
 	
+func shake_character(char_name: String, shake_amount: float, shake_time: float):
+	var character: Character = self.current_scene.get_character(char_name)
+
+	character.shake(shake_amount, shake_time)

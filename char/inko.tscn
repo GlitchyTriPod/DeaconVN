@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://rnd8h43lfs4l"]
+[gd_scene load_steps=8 format=3 uid="uid://rnd8h43lfs4l"]
 
 [ext_resource type="Script" path="res://char/Character.gd" id="1_rx5r7"]
 [ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_e7io5"]
+[ext_resource type="Script" path="res://script/shake_obj.gd" id="3_aner8"]
 [ext_resource type="Texture2D" uid="uid://yglgwabtnt2e" path="res://res/img/portraits/inko/inko_shocked.png" id="3_k1a2u"]
 [ext_resource type="Texture2D" uid="uid://c3h8tm5uml0ht" path="res://res/img/portraits/inko/inko_default (1).png" id="3_t5dac"]
 [ext_resource type="Texture2D" uid="uid://dnksut4g02kq7" path="res://res/img/portraits/inko/inko_suggestion.png" id="5_wreat"]
@@ -27,6 +28,7 @@ texture = ExtResource("2_e7io5")
 
 [node name="Expressions" type="Node2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("3_aner8")
 
 [node name="default" type="Sprite2D" parent="Expressions"]
 texture = ExtResource("3_t5dac")

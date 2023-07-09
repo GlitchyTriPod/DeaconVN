@@ -1,15 +1,39 @@
+import "res://dialogue/cafeccino/counter.dialogue" as counter
+
 ~ cafeccino
 
 do play_music("godot")
 
 if watched_cafe_intro == false
-	=> cafe_intro
+	=>< cafe_intro
+	
+do enter_character("deacon", "left", "default", "OffscreenRight")
 
+> Deacon has just started a job at Cafeccino.
 
+> He can take orders at the register, or help making them behind the counter.
+
+> What will Deacon do?
+- Take orders.
+	% Deacon: Let's try working the register.
+	% Deacon: Kitchen's too hot. I'll work the counter.
+	% Deacon: I can't cut my fingers at the counter. I think. 
+	#do exit_character("deacon")
+	=>< counter/counter
+	=> cafeccino
+- Make orders.
+	% Deacon: I don't wanna talk to people. Kitchen it is.
+	% Deacon: Let's hide in the back for a bit.
+	% Deacon: Working in the kitchen is easier, right?
+	#do exit_character("deacon")
+	=>< kitchen
+	=> cafeccino
+- Go somewhere else.
+	Deacon: It's not too busy right now... I'm sure the others can handle it.
+	do load_move_menu()
+	
+do exit_character("deacon")
 => END
-
-
-
 
 ~ cafe_intro
 
@@ -49,7 +73,7 @@ Deacon: Yeah.
 
 do change_expression("deacon", "nervous")
 do change_expression("ginger", "bashful")
-
+do shake_character("deacon", 0.7, 0.3)
 Deacon: I mean, uh, yes! Yes. I’m… Very interested in working at. Uh. Cafe-chee-no.
 
 Ginger: Oh, good! If you’ll please give me a moment, I’ll be right with you as soon as I’m done with these orders.
@@ -123,7 +147,7 @@ Ginger: Um, can I ask why you wanted to work here?
 
 	do change_expression("deacon", "thinking")
 
-	Deacon: I just. Really, [i]REALLY[/i] love coffee!
+	Deacon: I just. Really, [wait=0.2][i]REALLY[/i][wait=0.2] love coffee!
 	
 	do change_expression("deacon", "nervous")
 
@@ -137,7 +161,7 @@ Ginger: Um, can I ask why you wanted to work here?
 
 	Ginger: Personally, I love a good medium-light roast. I know it’s simple, but with the right bean, there’s endless amounts of flavor diversity!
 
-	Deacon: Uh. Yeah.
+	Deacon: Uh. [wait=0.3]Yeah.
 	
 	do change_expression("ginger", "bashful")
 
@@ -152,11 +176,11 @@ Ginger: Um, can I ask why you wanted to work here?
 		do change_expression("deacon", "nervous")
 		do change_expression("ginger", "default")
 
-		Deacon: …The super… dark… chocolate… lat-tay… frap-py… uh… ex-presso… with 5, uh, shots of…
+		Deacon: …The super… [wait=0.3]dark… [wait=0.3]chocolate… [wait=0.3]lat[wait=0.1]-tay… frap[wait=0.1]-py… [wait=0.3]uh… [wait=0.3]ex-presso… with 5[wait=0.3], uh,[wait=0.3] shots of…
 		
 		do change_expression("deacon", "tired")
 
-		Deacon: …Bean. Sauce?
+		Deacon: …Bean.[wait=0.5] Sauce?
 		
 		do change_expression("ginger", "sad")
 
@@ -299,5 +323,12 @@ Ginger: Let’s get you started!
 
 do exit_character("deacon")
 do exit_character("ginger")
+
+do watched_cafe_intro = true
+
+=> END
+
+
+~ kitchen
 
 => END

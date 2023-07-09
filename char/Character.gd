@@ -82,10 +82,20 @@ func change_position(pos: Vector2):
 		self, \
 		"position", \
 		pos,
-		0.3 \
+		0.7 \
 	).set_ease(Tween.EASE_IN_OUT).finished
 
 	emit_signal("character_moved")
+
+func shake(shake_amount: float, shake_time: float):
+	var tween = create_tween()
+	self.expressions.shake_amount = shake_amount
+	await tween.tween_property(
+		self.expressions,
+		"shake_amount",
+		0.0,
+		shake_time
+	).finished
 	
 ## SIGNAL
 

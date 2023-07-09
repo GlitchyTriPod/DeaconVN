@@ -121,6 +121,9 @@ func disable_response_buttons():
 
 	self.response_box.hide()
 
+func set_text_speed_modifier(spd: float = 0.0):
+	self.dialogue_label.text_speed_modifier = spd
+
 ## SIGNALS
 
 # func _on_mutated(_mutation: Dictionary) -> void:

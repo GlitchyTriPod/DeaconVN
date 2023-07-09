@@ -1,5 +1,7 @@
 ~ inkos_apt
 
+do play_music("grossberg")
+
 if watched_inko_apt_intro == true
 	=> inko_apt_default
 
@@ -12,7 +14,7 @@ Brie: Bleu. What do you think you’re doing?
 
 do change_expression("deacon", "nervous")
 
-Deacon: Ah. Uh. R-relaxing? In my home?
+Deacon: Ah.[wait=0.2] Uh.[wait=0.2] R-relaxing? In my home?
 
 do change_expression("brie", "pointing")
 Brie: First of all, this isn’t even your home, you’re just staying here.
@@ -79,18 +81,19 @@ Brie: Bleu… today is…
 Brie: …Payment day.
 
 do change_expression("deacon", "default")
-Deacon: Pay… ment…?
+Deacon: Pay…[wait=0.3] ment…?
 
 do play_sfx("lightbulb")
 Deacon: !!!
 do change_expression("deacon", "nervous")
 do play_sfx("stab")
+do shake_character("deacon", 0.5, 0.2)
 Deacon: Aah!
 
 Brie: Finally getting it?
 
 do change_expression("deacon", "distress")
-Deacon: Wait. Wai-wai-wai-wai-wait! Wait!
+Deacon: Wait.[wait=0.3] Wai-wai-wai-wai-wait![wait=0.3] Wait!
 
 Deacon: I can’t do Turf War matches! We have to lay low right now! You said so yourself!
 
@@ -103,7 +106,7 @@ do change_expression("deacon", "nervous")
 Deacon: Well, what the hell am I supposed to do about that? How am I going to make any kind of money in just one day?!
 
 do change_expression("brie", "annoyed")
-Brie: I don’t know. And I don’t care.
+Brie: I don’t know.[wait=0.1].[wait=0.1].[wait=0.3] And I don’t care.
 
 Brie: I’ll be nice, and give you until midnight. I’ll be at the Dhar estate if you need me. You know where it is.
 
@@ -130,10 +133,8 @@ Inko: The fuck!
 do play_sfx("dramapound")
 Inko: Happened?!
 do play_sfx("explosion")
+do shake_character("inko", 1, 0.2)
 Inko: TO THE DOOR?!
-
-do play_sfx("dooropens")
-> The door falls off its hinges.
 
 > This is Inko Tachibana, sister of Mystic Hues superstar Ikataro Tachibana.
 
@@ -244,6 +245,7 @@ do set_variable("watched_inko_apt_intro", true)
 	if asked_inko_for_help == false	
 		Deacon: …
 		do change_expression("deacon", "distress")
+		do shake_character("deacon", 1, 0.3)
 		Deacon: UGHHH. Where the hell do I even start!!
 
 		do change_expression("deacon", "default")

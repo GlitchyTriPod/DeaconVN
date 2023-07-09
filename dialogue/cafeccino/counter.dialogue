@@ -1,0 +1,330 @@
+~ counter
+
+do enter_character("deacon", "left", "default", 940, "right")
+
+> A customer steps up to the counter.
+
+do get_customer()
+
+if customer == "taro_bonbon"
+	=>< counter_taro_bonbon
+elif customer == "cherry"
+	=>< counter_cherry
+#elif customer == "maple":
+#	=>< counter_maple
+
+=> END
+
+~ counter_taro_bonbon
+
+do enter_character("taro", "right", "default", 340, "left")
+
+> It’s none other than the superstar himself, Ikataro Tachibana.
+
+do change_expression("taro", "annoyed")
+
+Taro: Wow, they really let anyone work here, huh?
+
+do change_expression("deacon", "annoyed")
+
+Deacon: Oh cod, not you!
+
+do change_expression("taro", "suggestion")
+
+Taro: You greet all your customers like that?
+
+Deacon: No, you’re just special.
+
+do change_expression("taro", "annoyed")
+
+Taro: ...
+
+Taro: Do you even know how to make coffee or are you going to mess this up too?
+
+> One time. [wait=0.5] Just once, Deacon subbed in for the Mystic Hues during a match.
+
+> They lost.
+
+> Ikataro has never forgiven Deacon for it.
+
+> While the scandal may have knocked him down a few pegs, today he is as antagonistic as ever. 
+
+???: [i]Ahem![/i]
+
+do move_character("taro", "left")
+do enter_character("bonbon", "right", "default", "farleft", "left")
+
+do change_expression("bonbon", "sheepish")
+do change_expression("deacon", "default")
+do change_expression("taro", "default")
+
+Bonbon: Um… I hate to be a bother, but… [wait=0.3] uh, there’s a line forming?
+
+> Bonbon, Ikataro’s former rival and longtime partner. They’re known to the public as Bon Voyage, aka the last thing you see before you’re splatted. Since their relationship went public, the two of them have been seen everywhere together. 
+
+> Aside from Inko, Bonbon is the only one capable of keeping Ikataro in line.
+
+Bonbon: P-Perhaps we could order? Um, instead of arguing?
+
+do change_expression("taro", "annoyed")
+
+Taro: [i]*sigh*[/i]
+
+do change_expression("taro", "suggestion")
+do change_expression("bonbon", "default")
+
+% Taro: [speed=3] I’ll have an iced, Ristretto, ten shot, venti, with breve, five pumps of vanilla, seven pumps of caramel. Poured, not shaken.
+% Taro: [speed=0.2] Vanilla Sweet Cream Nitro Cold Brew.
+% Taro: [speed=3] Iced Skinny Hazelnut Macchiato, Extra Shot, Light Ice, No Whip.
+- Protest.
+
+	do change_expression("deacon", "nervous")
+	do play_sfx("stab")
+	do shake_character("deacon", 0.5, 0.3)
+	Deacon: I-I can’t make that!
+	
+	do change_expression("taro", "annoyed")
+
+	Taro: Hmph.
+
+	Taro: Yet another thing you fail at.
+	
+	do change_expression("deacon", "annoyed")
+	do shake_character("deacon", 0.7, 0.3)
+	Deacon: What the hell’s your problem?
+
+	Bonbon: T-Taro!
+	
+	do change_expression("taro", "suggestion")
+
+	Taro: Bonnie would like a croissant. 
+	
+	do change_expression("taro", "annoyed")
+
+	Taro: You can get that at least, right?
+
+	Deacon: Order something else. 
+
+	Deacon: I’m not making… whatever that drink is. 
+	
+	do change_expression("taro", "suggestion")
+
+	Taro: Are you denying me service?
+	
+	do change_expression("bonbon", "sheepish")
+	
+	Bonbon: H-hahahah...
+	
+	Bonbon: Taro, dear, um… maybe you should, uh, go get us a table?
+
+	Bonbon: I’ll, uh, take care of things here…
+
+	Bonbon: Um… 
+
+	Bonbon: Please?
+	
+- Deny him a reaction.
+
+	do change_expression("deacon", "annoyed")
+
+	Deacon: Will that be all?
+	
+	do change_expression("bonbon", "sheepish")
+
+	Bonbon: A croissant, um… If you don’t mind?
+	
+	do change_expression("taro", "suggestion")
+
+	Taro: Hope you make drinks better than you play matches.
+	
+	do change_expression("taro", "annoyed")
+
+	Taro: Don’t mess it up.
+	
+do change_expression("taro", "annoyed", "left")
+do change_expression("bonbon", "default")
+
+do wait(0.7)
+
+do move_character("bonbon", 340)
+do change_expression("bonbon", "default", "left")
+do exit_character("taro", "left")
+
+> Taro leaves to find a table for them to sit at.
+
+do change_expression("bonbon", "sheepish", "right")
+
+Bonbon: S-Sorry about that… He’s, uh, been having a hard time…
+
+do change_expression("bonbon", "default")
+
+Bonbon: N-not that that excuses his behavior! 
+
+do change_expression("deacon", "default")
+
+Deacon: Yeah,[wait=0.2] whatever. Did you want a drink?
+
+Bonbon: Oh… uh… tea? Would be nice? 
+
+do change_expression("bonbon", "sheepish")
+
+Bonbon: A-any tea is fine. I’m not picky.
+
+> Deacon gets Bonbon their croissant.
+
+Deacon: Drinks should be out soon.
+
+Bonbon: Th-thank you!
+
+do change_expression("bonbon", "sheepish", "left")
+do wait(0.3)
+do exit_character("bonbon", "left")
+
+do wait(0.3)
+do exit_character("deacon", "right")
+=> END
+
+~ counter_cherry
+
+do enter_character("cherry", "right", "default", 340, "left")
+
+do change_expression("cherry", "happy")
+
+Cherry: Heeey, Duncan. 
+
+do change_expression("deacon", "nervous")
+
+>This is Cherry, a former (?) assassin. Her and Deacon became fast friends one fateful day at the train station (Cherry saved his life, you know). She lives next door to Inko with her brother, Pom.  
+
+do change_expression("cherry", "default")
+
+Cherry: I didn’t know you were working here. Guess that makes us coworkers!
+
+> That’s right, she also works at Cafeccino, though today appears to be her day off.
+
+Cherry: I just need to order a few things, and then I gotta bounce. In a bit of a hurry, you see. 
+
+do change_expression("deacon", "tired")
+
+Cherry: Speaking of… the wildest thing happened to me this morning. I was on my way out and the elevator stopped working on me, which is why I’m in a bit of a rush, you know? Because I had to wait for someone to come let me out. It was… awful. Has that ever happened to you?
+
+do change_expression("cherry", "happy")
+do change_expression("deacon", "sad")
+
+Cherry: Haha, I thought I was going to die. It was so scary! Luckily Pom was there to keep me company so I wasn’t completely alone. Still, I don’t know if I’ll be taking the elevator any time soon. 
+
+do change_expression("deacon", "tired")
+
+Deacon: Are you, uh… gonna order something?
+
+do change_expression("cherry", "default")
+do change_expression("deacon", "default")
+
+Cherry: Oh! Right! Let’s see…
+
+do change_expression("cherry", "default", "left")
+
+> Cherry pulls out a list and rattles off a seemingly endless order. 
+
+do change_expression("cherry", "default", "right")
+
+Cherry: You got that, right?
+- Be honest.
+	Deacon: Sorry, can you say that again?
+	
+	do move_character("cherry", "left")
+	> Cherry hands him the list.
+	
+	do move_character("cherry", 340)
+
+	do change_expression("deacon", "tired")
+	Deacon: …Right. It’ll be ready soon.
+
+- Cut corners.
+	
+	do change_expression("deacon", "tired")
+	Deacon: Uh. Yeah. Got it.
+
+	> Deacon writes, “1 large roast. Black.”
+	
+do change_expression("deacon", "default")
+do change_expression("cherry", "happy")
+Cherry: Thank you!
+
+do change_expression("cherry", "default")
+Cherry: Oh, also, ummmmmm…
+
+do change_expression("cherry", "scheming")
+Cherry: Can [i]you[/i] make the drinks?
+
+do change_expression("deacon", "nervous")
+Deacon: But I’m working the register?
+
+do change_expression("cherry", "happy")
+Cherry: Thank you, Damien! You’re a real one!
+
+do change_expression("deacon", "annoyed")
+Deacon: [muttering] Cod, I can’t stand her…
+
+do fade_to_black()
+
+> After a few minutes, and more than a few burnt fingertips, Deacon completes Cherry’s order.
+do change_expression("cherry", "default")
+do change_expression("deacon", "default")
+
+do fade_from_black()
+
+Deacon: Here.
+
+do change_expression("cherry", "happy")
+
+Cherry: Oh, wow! Thanks! It’s perfect!
+
+do change_expression("cherry", "default")
+Cherry: …
+
+do change_expression("cherry", "scheming")
+Cherry: …Um, actually…
+
+do change_expression("deacon", "tired")
+do play_sfx("stab")
+do shake_character("deacon", 1, 0.3)
+Deacon: UGH.
+
+do change_expression("cherry", "default")
+Cherry: Could you add some chocolate to this? Like, a LOT more.
+
+do change_expression("deacon", "annoyed")
+do shake_character("deacon", 0.5, 0.2)
+Deacon: Tch.
+
+> Fed up, Deacon fills two small cups full of chocolate syrup.
+
+Deacon: Go wild.
+
+do change_expression("cherry", "happy")
+Cherry: Oh, that’s great!
+
+do change_expression("cherry", "default")
+Cherry: …
+
+Cherry: …I’m gonna need a cupholder for these.
+
+do change_expression("deacon", "sad")
+Deacon: [color=#88b8eb] [i]Just hold it in. Just hold it in. It’ll all be over soon.[/i] [/color]
+
+do change_expression("cherry", "scheming")
+Cherry: Thanks! Oh, and don’t tell Ginger! She doesn’t like when I consume so much sugar.
+
+do change_expression("cherry", "happy")
+Cherry: Okay, thanks, byee!
+
+do change_expression("cherry", "happy", "left")
+do exit_character("cherry", "left")
+do exit_character("deacon", "right")
+
+=> END
+
+~ counter_maple
+
+=> END

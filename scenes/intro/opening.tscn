@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwpgib7awvfd8"]
+[gd_scene load_steps=8 format=3 uid="uid://dwpgib7awvfd8"]
 
 [ext_resource type="Script" path="res://scenes/intro/opening_scene.gd" id="1_th5e2"]
 [ext_resource type="Resource" uid="uid://fbntna13j4tc" path="res://dialogue/opening/op.dialogue" id="2_4gnx3"]
 [ext_resource type="Texture2D" uid="uid://y5l6trqgpb1s" path="res://res/img/cg_deacon_lament.png" id="3_vmu4p"]
-[ext_resource type="Texture2D" uid="uid://cybhx1pbulhx1" path="res://res/img/bg/debug/intro2.jpg" id="4_70uot"]
+[ext_resource type="Texture2D" uid="uid://bx8wks5e3unq2" path="res://res/img/cg_break_door.png" id="4_m6i57"]
+[ext_resource type="Script" path="res://script/shake_obj.gd" id="5_4ie4o"]
+[ext_resource type="Texture2D" uid="uid://bnerqpkiefvk1" path="res://res/img/cg_missing_taro.png" id="5_ebc7u"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hqxx0"]
 
@@ -37,11 +39,19 @@ texture = ExtResource("3_vmu4p")
 [node name="op2" type="TextureRect" parent="CGs"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 384.0
-offset_top = -119.0
-offset_right = 1262.0
-offset_bottom = 583.0
-texture = ExtResource("4_70uot")
+offset_top = -89.0
+offset_right = 1280.0
+offset_bottom = 631.0
+texture = ExtResource("4_m6i57")
+script = ExtResource("5_4ie4o")
+
+[node name="op3" type="TextureRect" parent="CGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -34.0
+offset_right = 1280.0
+offset_bottom = 686.0
+texture = ExtResource("5_ebc7u")
 
 [node name="CharacterPositions" type="Node2D" parent="."]
 unique_name_in_owner = true

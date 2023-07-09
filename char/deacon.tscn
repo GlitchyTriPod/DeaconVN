@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://duqaor6ag0bwa"]
+[gd_scene load_steps=11 format=3 uid="uid://duqaor6ag0bwa"]
 
 [ext_resource type="Script" path="res://char/Character.gd" id="1_66qev"]
 [ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_fgjb4"]
+[ext_resource type="Script" path="res://script/shake_obj.gd" id="3_66ddj"]
 [ext_resource type="Texture2D" uid="uid://btrf5utppx8fc" path="res://res/img/portraits/debug/default.png" id="3_m8m4j"]
 [ext_resource type="Texture2D" uid="uid://drxjq8onnor60" path="res://res/img/portraits/debug/distress.png" id="4_l5us6"]
 [ext_resource type="Texture2D" uid="uid://dd37rqdu87ns0" path="res://res/img/portraits/debug/nervous.png" id="5_4a3r4"]
@@ -14,6 +15,7 @@
 script = ExtResource("1_66qev")
 character_name = "deacon"
 expression_list = {
+"annoyed": NodePath("Expressions/annoyed"),
 "default": NodePath("Expressions/default"),
 "distress": NodePath("Expressions/distress"),
 "nervous": NodePath("Expressions/nervous"),
@@ -32,6 +34,7 @@ texture = ExtResource("2_fgjb4")
 [node name="Expressions" type="Node2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(-1, 1)
+script = ExtResource("3_66ddj")
 
 [node name="default" type="Sprite2D" parent="Expressions"]
 texture = ExtResource("3_m8m4j")
