@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://igwwd88rdf4u"]
+[gd_scene load_steps=7 format=3 uid="uid://igwwd88rdf4u"]
 
 [ext_resource type="Script" path="res://autoload/SceneManager.gd" id="1_42lmf"]
 [ext_resource type="PackedScene" uid="uid://b53yvtcn8j4s" path="res://scenes/debug/scene_debug.tscn" id="2_i38sk"]
 [ext_resource type="PackedScene" uid="uid://dwpgib7awvfd8" path="res://scenes/intro/opening.tscn" id="3_g1swp"]
 [ext_resource type="PackedScene" uid="uid://bypqwulpiyngg" path="res://scenes/inkos_apt.tscn" id="4_hftbh"]
 [ext_resource type="PackedScene" uid="uid://h7fptjmwq76d" path="res://scenes/cafe/cafe.tscn" id="5_wv8l8"]
+[ext_resource type="Texture2D" uid="uid://b1m1fihb162hc" path="res://res/img/bg/cafe.png" id="6_w67hr"]
 
 [node name="SceneManager" type="Node" groups=["Persist"]]
 script = ExtResource("1_42lmf")
@@ -16,7 +17,7 @@ scenes = {
 }
 movable_scenes = {
 "cafeccino": {
-"img": null,
+"img": ExtResource("6_w67hr"),
 "name": "Cafeccino",
 "unlocked": true
 },

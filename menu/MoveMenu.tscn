@@ -77,8 +77,10 @@ alignment = 1
 script = ExtResource("3_xbwjk")
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBox/ScrollContainer/SceneContainer/Template"]
+custom_minimum_size = Vector2(250, 140)
 layout_mode = 2
 texture = ExtResource("2_7bcqn")
+expand_mode = 1
 
 [node name="Button" type="Button" parent="Control/VBox/ScrollContainer/SceneContainer/Template"]
 layout_mode = 2
