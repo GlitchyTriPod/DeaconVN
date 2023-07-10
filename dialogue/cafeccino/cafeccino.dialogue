@@ -3,6 +3,7 @@ import "res://dialogue/cafeccino/counter.dialogue" as counter
 ~ cafeccino
 
 do play_music("godot")
+do get_customer()
 
 if watched_cafe_intro == false
 	=>< cafe_intro
@@ -95,13 +96,13 @@ do fade_from_black()
 do enter_character("ginger", "right", "default", 340, "left")
 do enter_character("deacon", "left", "default", 940, "right")
 
-Ginger: Oh wow, Your resume is really diverse Mr. Bleu.
+Ginger: Oh wow, your resume is really diverse Mr. Bleu.
 
 do change_expression("ginger", "bashful")
 
 Ginger: Like, [i]really[/i] diverse.
 
-> This is Ginger, co-owner and lead barista of Cafeccino. She’s nice but more jittery than her espresso fueled patrons. 
+> This is Ginger, co-owner and lead barista of Cafeccino. She’s nice, but more jittery than her espresso fueled patrons. 
 
 > Everything frightens her, and superstition is her personal bible. Some think she’s too paranoid, but it can’t be denied she has freakishly good intuition. 
 

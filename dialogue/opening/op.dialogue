@@ -1,9 +1,12 @@
 ~ opening_scene
 
+do display_cg("op4", 1.0)
 > Six months ago, the Turf War community found itself in upheaval.
+
 
 > The famed professional team, the Mystic Hues, found themselves embroiled in scandal.
 
+do hide_cg("op4", 1.0)
 do display_cg("op3", 1.0)
 
 > As pressure mounted, the team fractured, and their beloved captain, Ikataro Tachibana, vanished without a trace…
@@ -16,7 +19,7 @@ do display_cg("op3", 1.0)
 
 do hide_cg("op3", 1.0)
 
-> Ikataro eventually found his way back, the team reunited, and, basically, all’s well that ends well.
+> Ikataro eventually found his way back, the team reunited, and basically, all’s well that ends well.
 
 > Right?
 

@@ -3,6 +3,8 @@ extends Node
 
 @export var shake_amount: float = 0.0
 
+@export var home_position: Vector2 = Vector2()
+
 @export var lock_x := false
 @export var lock_y := false
 
@@ -17,12 +19,12 @@ func _process(_delta):
 
 	if "rect_position" in self:
 		self.rect_position = Vector2(
-			(randf_range(-20, 20) * shake_amount) * x_lock,
-			(randf_range(-20, 20) * shake_amount) * y_lock
+			((randf_range(-20, 20) * shake_amount) * x_lock) + self.home_position.x,
+			((randf_range(-20, 20) * shake_amount) * y_lock) + self.home_position.y
 		)
 		
 	elif "position" in self:
 		self.position = Vector2(
-			(randf_range(-20, 20) * shake_amount) * x_lock,
-			(randf_range(-20, 20) * shake_amount) * y_lock
+			((randf_range(-20, 20) * shake_amount) * x_lock) + self.home_position.x,			
+			((randf_range(-20, 20) * shake_amount) * y_lock) + self.home_position.y
 		)

@@ -60,7 +60,7 @@ var inko_suggestion: String:
 var counter_customers = [
 	"taro_bonbon",
 	"cherry",
-	# "maple"
+	"maple"
 ]
 
 var customer
@@ -72,5 +72,5 @@ func get_customer():
 	else:
 		self.customer = self.counter_customers[0]
 
-var watched_cafe_intro = false
+var watched_cafe_intro = true
 

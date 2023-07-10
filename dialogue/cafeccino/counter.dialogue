@@ -4,14 +4,14 @@ do enter_character("deacon", "left", "default", 940, "right")
 
 > A customer steps up to the counter.
 
-do get_customer()
+
 
 if customer == "taro_bonbon"
 	=>< counter_taro_bonbon
 elif customer == "cherry"
 	=>< counter_cherry
-#elif customer == "maple":
-#	=>< counter_maple
+elif customer == "maple":
+	=>< counter_maple
 
 => END
 
@@ -39,7 +39,7 @@ do change_expression("taro", "annoyed")
 
 Taro: ...
 
-Taro: Do you even know how to make coffee or are you going to mess this up too?
+Taro: Do you even know how to make coffee? Or are you going to mess this up too?
 
 > One time. [wait=0.5] Just once, Deacon subbed in for the Mystic Hues during a match.
 
@@ -187,6 +187,7 @@ do exit_character("deacon", "right")
 ~ counter_cherry
 
 do enter_character("cherry", "right", "default", 340, "left")
+do wait(0.3)
 
 do change_expression("cherry", "happy")
 
@@ -317,7 +318,7 @@ do change_expression("cherry", "scheming")
 Cherry: Thanks! Oh, and don’t tell Ginger! She doesn’t like when I consume so much sugar.
 
 do change_expression("cherry", "happy")
-Cherry: Okay, thanks, byee!
+Cherry: Okay, thanks, byeee~!
 
 do change_expression("cherry", "happy", "left")
 do exit_character("cherry", "left")
@@ -326,5 +327,145 @@ do exit_character("deacon", "right")
 => END
 
 ~ counter_maple
+
+do enter_character("maple","right", "default", 340, "left")
+
+Maple: Hello, brother.
+
+do change_expression("deacon", "nervous")
+do shake_character("deacon", 0.7, 0.3)
+Deacon: Oh…![wait=0.3] H-[wait=0.3]Hey… Maple.
+
+> This is Maple Bleu, Deacon’s older sister and head librarian at the Inkopolis Public Library. 
+
+> It’s surprising to even see her out and about given she almost never leaves her precious books. 
+
+do change_expression("maple", "surprised")
+Maple: Is this where you’re working these days?
+
+do change_expression("deacon", "thinking")
+Deacon: Uh… yeah.[wait=0.4] Just for today though.
+do change_expression("deacon", "default")
+Deacon: Um.[wait=0.4] So… [wait=0.2]Are you gonna get anything?
+
+do change_expression("maple", "default")
+Maple: A house blend.
+
+Deacon: With two cream and sugar?
+
+do change_expression("maple", "surprised")
+Maple: Yes. You remembered.
+
+Deacon: Of course. Anything else?
+
+do change_expression("maple", "default")
+Maple: ...A welfare check. [wait=0.5] What have you been up to? I haven’t heard from you since Squidmas.
+
+do change_expression("deacon", "nervous")
+Deacon: U-[wait=0.2]uuuh…
+
+do change_expression("deacon", "tired")
+Deacon: …A whole lotta of nothing.
+
+do change_expression("deacon", "default")
+Deacon: I haven’t really gotten into any Turf War matches since the whole Mystic Hues… [wait=0.5]thing.
+
+Maple: I see.
+
+do change_expression("maple", "surprised")
+Maple: It seems that many players have been affected by that ordeal.
+
+do change_expression("deacon", "tired")
+Deacon: Y-yeah…
+
+do change_expression("maple", "default")
+Maple: What even happened there? I’m not too keen on the details…
+
+do change_expression("deacon", "sad")
+Maple: All Taro told me was that there was a fill-in player on the team that was, “very, very, extremely bad.”
+
+Maple: Of course, he didn’t use those exact words. I decided to spare your ears.
+
+do change_expression("deacon", "tired")
+Deacon: I-is that so…
+
+Maple: Do you know what happened?
+- Tell the truth, but leave some things out.
+	
+	do change_expression("deacon", "default")
+	Deacon: Well… It wasn’t my best performance. That’s all I’ll say.
+	
+	Maple: Your best perfor-?
+
+	do change_expression("maple", "surprised")
+	do play_sfx("realization")
+	Maple: …Wait, [i]you[/i] were the sub-in?!
+
+	Deacon: Yeah, I-
+
+	do change_expression("deacon", "nervous")
+	do shake_character("deacon", 1, 0.3)
+	do play_sfx("stab")
+	Deacon: Wait, you didn’t know?
+
+	Maple: No, I didn’t! The way Taro described it, I thought the sub-in was someone who was really bottom-of-the-barrel!
+
+	do change_expression("deacon", "annoyed")
+	do shake_character("deacon", 1, 0.3)
+	do play_sfx("whack")
+	Deacon: Grk.
+
+	do change_expression("maple", "default")
+	Maple: Oh. I apologize.[wait=0.3] Did I offend you?
+
+	do shake_character("deacon", 1, 0.3)
+	Deacon: Mmm.[wait=0.5] Nah, [wait=0.5]I’m fine.
+
+	Deacon: [color=#88b8eb][i]I’ll kill Taro next time I see him.[/i][/color]
+
+- Skew the details.
+
+	do change_expression("deacon", "thinking")
+	Deacon: Yeah, they say the sub-in guy threw the game on purpose.
+
+	do change_expression("maple", "surprised")
+	Deacon: Honestly, though? I don’t buy it.
+
+	Maple: Really? I think it makes a lot of sense.
+
+	do change_expression("deacon", "nervous")
+	do play_sfx("whack")
+	do shake_character("deacon", 0.5, 0.3)
+	Deacon: Buh-[wait=0.3]whuh?
+
+	Maple: I’m sure someone could make a lot of money from purposefully throwing matches.
+
+	Deacon: Y-ya think?
+
+	do change_expression("maple", "default")
+	Maple: With the economy the way it is… Corporate power is skyrocketing… People are becoming desperate…
+
+	do shake_character("deacon", 0.5, 0.3)
+	Maple: I can see it.[wait=0.5] Now the question is…[wait=0.3] [i]Who[/i] is this mystery man?
+
+	do change_expression("deacon", "tired")
+	Deacon: Y-yeah… [wait=0.3]who…
+	
+do change_expression("deacon", "default")
+Maple: Anyways, I’m pleased to see that you are alive and well.
+
+Deacon: Me too.
+
+Maple: You should stop by the library some time.
+
+do change_expression("maple", "surprised")
+Maple: I could always use a hand. If you’re willing, that is.
+
+do change_expression("deacon", "thinking")
+Deacon: I’ll… think about it.
+
+do change_expression("deacon", "default")
+do exit_character("maple", "left")
+do exit_character("deacon", "right")
 
 => END
