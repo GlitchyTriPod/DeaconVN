@@ -23,7 +23,7 @@ func set_variable(var_name: String, value: Variant):
 			_:
 				return "Saturday"
 
-var watched_inko_apt_intro = true
+var watched_inko_apt_intro = false
 var asked_inko_for_help = false
 
 var inko_suggestions = [
@@ -72,5 +72,5 @@ func get_customer():
 	else:
 		self.customer = self.counter_customers[0]
 
-var watched_cafe_intro = true
+var watched_cafe_intro = false
 

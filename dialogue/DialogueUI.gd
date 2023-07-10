@@ -39,7 +39,11 @@ var dialogue_line: DialogueLine:
 		dialogue_label.dialogue_line = dialogue_line
 
 		# show any responses we have
+		var has_responses = false
 		if dialogue_line.responses.size() > 0:
+			has_responses = true
+			self.response_box.modulate = Color("#ffffff00")
+			self.response_box.position = Vector2(204, 105)
 			self.response_box.show()
 			for response in dialogue_line.responses:
 
@@ -53,7 +57,7 @@ var dialogue_line: DialogueLine:
 				item.text = response.text
 				self.response_box.get_child(0).add_child(item)
 
-				item.button_up.connect(_on_response_button_up.bind(item))
+				item.button_up.connect(_on_response_button_up.bind(item))			
 
 		if !dialogue_line.text.is_empty():
 			self.dialogue_label.type_out()
@@ -71,6 +75,24 @@ var dialogue_line: DialogueLine:
 			next(dialogue_line.next_id)
 
 		self.dialogue_finished_typing = false
+
+		if has_responses:
+			# make response box fade in
+			var tween = create_tween()
+			var tween2 = create_tween()
+			tween.tween_property(
+				self.response_box,
+				"modulate",
+				Color("#ffffffff"),
+				0.3
+			)
+			tween2.tween_property(
+				self.response_box,
+				"position",
+				Vector2(204, 55),
+				0.3
+			)
+			get_node("/root/AudioManager").play_sfx("shooop")
 
 	get:
 		return dialogue_line
@@ -137,8 +159,9 @@ func _on_dialogue_label_continue_dialogue():
 		next(self.dialogue_line.next_id)
 
 func _on_response_button_up(item: Button):
+	get_node("/root/AudioManager").play_sfx("selectblip2")
 	var item_name = item.name.get_slice("%d", 5)
-	var index = int(item_name) - 1#.erase(item_name.length - 1, 1))
+	var index = int(item_name) - 1
 	disable_response_buttons()
 	next(self.dialogue_line.responses[index].next_id)
 

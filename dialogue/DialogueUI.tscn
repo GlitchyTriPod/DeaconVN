@@ -118,6 +118,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_ve51h")
+theme_override_font_sizes/font_size = 41
 text = "This is a typical response option."
 
 [connection signal="continue_dialogue" from="Dia_Box/Margin/VBox/DialogueLabel" to="." method="_on_dialogue_label_continue_dialogue"]

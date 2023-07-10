@@ -384,7 +384,7 @@ Maple: What even happened there? I’m not too keen on the details…
 do change_expression("deacon", "sad")
 Maple: All Taro told me was that there was a fill-in player on the team that was, “very, very, extremely bad.”
 
-Maple: Of course, he didn’t use those exact words. I decided to spare your ears.
+Maple: Of course, he didn’t use those exact words. I've elected to spare your ears.
 
 do change_expression("deacon", "tired")
 Deacon: I-is that so…

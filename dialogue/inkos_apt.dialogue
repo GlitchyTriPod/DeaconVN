@@ -167,7 +167,7 @@ Inko: Door prices right now are through the roof!
 
 Inko: That’s not where doors are supposed to be!
 
-Deacon: Sorry Koko, doors don’t really stand much of a chance against a really determined mobster.
+Deacon: Sorry, Koko. Doors don’t stand much of a chance against a really determined mobster.
 do change_expression("deacon", "tired")
 Deacon: I’d pay for it, but…
 
