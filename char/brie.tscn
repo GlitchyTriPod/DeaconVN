@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://uw47dfqieo2w"]
+
+[ext_resource type="Script" path="res://char/Character.gd" id="1_yntge"]
+[ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_cksuk"]
+[ext_resource type="Script" path="res://script/shake_obj.gd" id="3_40e2r"]
+[ext_resource type="Texture2D" uid="uid://xupsdne5n670" path="res://res/img/portraits/brie/brie_neutral.png" id="3_kxrxx"]
+[ext_resource type="Texture2D" uid="uid://1opcylrs1u48" path="res://res/img/portraits/brie/brie_angry.png" id="4_u3ojp"]
+[ext_resource type="Texture2D" uid="uid://djcba6thuk1r7" path="res://res/img/portraits/brie/brie_annoyed.png" id="5_c78qi"]
+[ext_resource type="Texture2D" uid="uid://bt7mhcu4v0vph" path="res://res/img/portraits/brie/brie_pointing.png" id="6_yq5vf"]
+
+[node name="char_debug" type="Node2D"]
+script = ExtResource("1_yntge")
+character_name = "brie"
+expression_list = {
+"angry": NodePath("Expressions/angry"),
+"annoyed": NodePath("Expressions/annoyed"),
+"default": NodePath("Expressions/default"),
+"pointing": NodePath("Expressions/pointing")
+}
+character_label_color = Color(0, 0.490196, 0.290196, 1)
+text_sound = "high"
+
+[node name="Size_reference" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.0470588)
+texture = ExtResource("2_cksuk")
+
+[node name="Expressions" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_40e2r")
+
+[node name="default" type="Sprite2D" parent="Expressions"]
+texture = ExtResource("3_kxrxx")
+
+[node name="angry" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("4_u3ojp")
+
+[node name="annoyed" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("5_c78qi")
+
+[node name="pointing" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("6_yq5vf")

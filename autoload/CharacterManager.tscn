@@ -1,0 +1,28 @@
+[gd_scene load_steps=12 format=3 uid="uid://beve30175wtli"]
+
+[ext_resource type="Script" path="res://autoload/CharacterManager.gd" id="1_ix2bn"]
+[ext_resource type="PackedScene" uid="uid://d2xv2gvmj8fbc" path="res://char/debug/char_debug.tscn" id="2_b5l3c"]
+[ext_resource type="PackedScene" uid="uid://duqaor6ag0bwa" path="res://char/deacon.tscn" id="3_o83g0"]
+[ext_resource type="PackedScene" uid="uid://uw47dfqieo2w" path="res://char/brie.tscn" id="4_ghxe3"]
+[ext_resource type="PackedScene" uid="uid://rnd8h43lfs4l" path="res://char/inko.tscn" id="5_cv0q8"]
+[ext_resource type="PackedScene" uid="uid://cu4o02ukfqutq" path="res://char/taro.tscn" id="6_bdodx"]
+[ext_resource type="PackedScene" uid="uid://cuvynnjs56enq" path="res://char/ginger.tscn" id="7_yc4ds"]
+[ext_resource type="PackedScene" uid="uid://q0in2merko2k" path="res://char/bonbon.tscn" id="8_7otun"]
+[ext_resource type="PackedScene" uid="uid://cx0rby0re8ri4" path="res://char/cherry.tscn" id="9_mq58n"]
+[ext_resource type="PackedScene" uid="uid://csk7hshh61hdm" path="res://char/maple.tscn" id="10_ip2qe"]
+[ext_resource type="PackedScene" uid="uid://bxc8ut8042lrq" path="res://char/wulfesh.tscn" id="11_1x46a"]
+
+[node name="CharacterManager" type="Node" groups=["Persist"]]
+script = ExtResource("1_ix2bn")
+characters = {
+"bonbon": ExtResource("8_7otun"),
+"brie": ExtResource("4_ghxe3"),
+"cherry": ExtResource("9_mq58n"),
+"deacon": ExtResource("3_o83g0"),
+"debug": ExtResource("2_b5l3c"),
+"ginger": ExtResource("7_yc4ds"),
+"inko": ExtResource("5_cv0q8"),
+"maple": ExtResource("10_ip2qe"),
+"taro": ExtResource("6_bdodx"),
+"wulfesh": ExtResource("11_1x46a")
+}

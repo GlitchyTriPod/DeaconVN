@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5m23lp52tsi3"]
+
+[ext_resource type="Theme" uid="uid://cyyjojvna3xqg" path="res://res/themes/def_theme.tres" id="1_36br0"]
+[ext_resource type="Script" path="res://menu/MainMenu.gd" id="1_a68rg"]
+[ext_resource type="Resource" uid="uid://fbntna13j4tc" path="res://dialogue/opening/op.dialogue" id="2_58wkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdter"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_a68rg")
+new_game_dialogue = ExtResource("2_58wkn")
+new_game_title = "new_game"
+
+[node name="Control" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0695312
+anchor_top = 0.613889
+anchor_right = 0.315625
+anchor_bottom = 0.797222
+offset_top = 3.05176e-05
+grow_vertical = 0
+
+[node name="NewGame" type="Button" parent="Control/VBox"]
+layout_mode = 2
+theme = ExtResource("1_36br0")
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Control/VBox"]
+layout_mode = 2
+theme = ExtResource("1_36br0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdter")
+disabled = true
+text = "Load Game"
+
+[node name="Label" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 179.0
+offset_right = 598.0
+offset_bottom = 428.0
+rotation = -0.31006
+theme = ExtResource("1_36br0")
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 19
+theme_override_constants/line_separation = -54
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 62
+bbcode_enabled = true
+text = "[center]Deacon Bleu 
+Needs Money[/center]"
+scroll_active = false
+
+[connection signal="button_up" from="Control/VBox/NewGame" to="." method="_on_new_game_button_up"]

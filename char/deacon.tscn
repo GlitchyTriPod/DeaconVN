@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://duqaor6ag0bwa"]
+
+[ext_resource type="Script" path="res://char/Character.gd" id="1_66qev"]
+[ext_resource type="Texture2D" uid="uid://kwpo2d0jtxun" path="res://res/img/portraits/debug/debug.png" id="2_fgjb4"]
+[ext_resource type="Script" path="res://script/shake_obj.gd" id="3_66ddj"]
+[ext_resource type="Texture2D" uid="uid://btrf5utppx8fc" path="res://res/img/portraits/debug/default.png" id="3_m8m4j"]
+[ext_resource type="Texture2D" uid="uid://drxjq8onnor60" path="res://res/img/portraits/debug/distress.png" id="4_l5us6"]
+[ext_resource type="Texture2D" uid="uid://dd37rqdu87ns0" path="res://res/img/portraits/debug/nervous.png" id="5_4a3r4"]
+[ext_resource type="Texture2D" uid="uid://cbs25y3k65nkb" path="res://res/img/portraits/deacon/deacon_thinking.png" id="6_4v66i"]
+[ext_resource type="Texture2D" uid="uid://cacba3pl841io" path="res://res/img/portraits/deacon/deacon_tired.png" id="7_sae4c"]
+[ext_resource type="Texture2D" uid="uid://cwbgadkk7qr67" path="res://res/img/portraits/deacon/deacon_sad.png" id="8_f4grk"]
+[ext_resource type="Texture2D" uid="uid://cnxwu3twhygxv" path="res://res/img/portraits/deacon/deacon_annoyed.png" id="9_6y5ou"]
+
+[node name="char_debug" type="Node2D"]
+script = ExtResource("1_66qev")
+character_name = "deacon"
+expression_list = {
+"annoyed": NodePath("Expressions/annoyed"),
+"default": NodePath("Expressions/default"),
+"distress": NodePath("Expressions/distress"),
+"nervous": NodePath("Expressions/nervous"),
+"sad": NodePath("Expressions/sad"),
+"thinking": NodePath("Expressions/thinking"),
+"tired": NodePath("Expressions/tired")
+}
+character_label_color = Color(0, 0.490196, 0.823529, 1)
+
+[node name="Size_reference" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.0470588)
+texture = ExtResource("2_fgjb4")
+
+[node name="Expressions" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(-1, 1)
+script = ExtResource("3_66ddj")
+
+[node name="default" type="Sprite2D" parent="Expressions"]
+texture = ExtResource("3_m8m4j")
+
+[node name="distress" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("4_l5us6")
+
+[node name="nervous" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("5_4a3r4")
+
+[node name="thinking" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("6_4v66i")
+
+[node name="tired" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("7_sae4c")
+
+[node name="sad" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("8_f4grk")
+
+[node name="annoyed" type="Sprite2D" parent="Expressions"]
+visible = false
+texture = ExtResource("9_6y5ou")
