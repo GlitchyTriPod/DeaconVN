@@ -27,8 +27,8 @@ do enter_character("deacon", "left", "default", "OffscreenRight")
 	% Deacon: Let's hide in the back for a bit.
 	% Deacon: Working in the kitchen is easier, right?
 	#do exit_character("deacon")
-	=>< kitchen
-	=> cafeccino
+	do load_scene("cafe_kitchen")
+	=> END
 - Go somewhere else.
 	Deacon: It's not too busy right now... I'm sure the others can handle it.
 	do load_move_menu()
@@ -207,7 +207,7 @@ Ginger: Um, can I ask why you wanted to work here?
 
 		Ginger: With [i]five[/i] shots of bean sauce?!?!
 
-		Ginger: Nobody has lived for more than five months drinking that! You gotta give up that habit!
+		Ginger: Nobody has lived for more than five months drinking that! You must give up that habit!
 		
 		do change_expression("deacon", "nervous")
 
@@ -329,7 +329,314 @@ do watched_cafe_intro = true
 
 => END
 
-
 ~ kitchen
+
+if met_wulfesh == false
+	=>< wulfesh_intro
+	do fade_from_black()
+	
+> You are in the Cafeccino kitchen. Wulfesh should be around here somewhere...
+- Check on orders.
+	do enter_character("deacon", "left", "default", 940, "right")
+	Deacon: Hey, Wulfesh!
+	
+	do enter_character("wulfesh", "right", "default", 340, "left")
+	Wulfesh: Wuzzat?
+	
+	Deacon: Any orders that need to be done?
+	
+	Wulfesh: Nothing to report!
+	
+	do change_expression("deacon", "thinking")
+	Deacon: Are you sure?
+	
+	Wulfesh: Yep!
+	
+	do change_expression("deacon", "default")
+	Deacon: ...Are you [i]sure?[/i]
+	
+	Wulfesh: Uh-huh!
+	
+	Deacon: Well... Okay, then.
+	
+	do exit_character("deacon")
+	do exit_character("wulfesh")
+
+- Get a refresher from Wulfesh.
+	do enter_character("deacon", "left", "default", 940, "right")
+	Deacon: Hey, Wulfesh!
+	
+	do enter_character("wulfesh", "right", "default", 340, "left")
+	Wulfesh: Wuzzat?
+	
+	Deacon: I'm gonna regret this... But do you mind going over the kitchen stuff again? I think I need a refresher.
+	
+	do move_character("wulfesh", "left")
+	Wulfesh: Wooooooo!!!
+	
+	do change_expression("deacon", "nervous")
+	Deacon: Oh no.
+	do fade_to_black()
+	do exit_character("deacon")
+	do exit_character("wulfesh")
+	do wait(1.2)
+	do fade_from_black()
+	=>< wulfesh_intro
+	do fade_from_black()
+
+- Go back to Cafeccino.
+	do load_scene("cafeccino")
+	=> END
+	
+=> kitchen
+=> END
+
+~ wulfesh_intro
+
+if met_wulfesh == false
+
+	do met_wulfesh = true
+
+	do enter_character("deacon", "left", "default", "right", "right")
+
+	> A cacophony of pots and pans clattering to the ground fill the air as Deacon steps into the kitchen.
+
+	do enter_character("wulfesh", "right", "default", "right", "left")
+	do wait(0.7)
+	do play_sfx("whack")
+	do change_expression("deacon", "distress")
+	do shake_character("deacon", 0.7, 0.4)
+	do shake_character("wulfesh", 0.7, 0.4)
+	do move_character("deacon", "farright")
+
+	> A blue blur comes barreling across the room and knocks into Deacon, sending both of them sprawling.
+
+	do move_character("wulfesh", "right")
+	do change_expression("wulfesh", "default", "left")
+
+	Wulfesh: *Whimper*
+
+	> Blue fluff scatters all around Deacon and the strange creature before him. They rub their head with large, fluffy… mittens?
+
+	Wulfesh: Owie… 
+
+	do change_expression("wulfesh", "default", "right")
+
+	Wulfesh: Hm? 
+
+	do move_character("wulfesh", 940)
+
+	> The stranger gets closer and gives Deacon a sniff.
+
+	do change_expression("deacon", "nervous")
+	Deacon: W-[wait=0.3]woah, there![wait=0.5] Personal space!
+
+	do move_character("wulfesh", "center")
+	do change_expression("wulfesh", "excited")
+	Wulfesh: Ooooh! New friend?!
+
+	do shake_character("wulfesh", 0.7, 1.0)
+	> The fluffy appendage on the creature’s rear wags violently, knocking over more kitchen utensils.
+
+	do shake_character("wulfesh", 0.9, 1.0)
+	> There is hair everywhere.[wait=0.5] [i]Everywhere.[/i]
+
+	do move_character("wulfesh", 340)
+	do move_character("deacon", 940)
+
+	do change_expression("deacon", "default")
+	Deacon: I, uh. I just work here.
+
+	do change_expression("wulfesh", "nervous")
+	Wulfesh: *Gasp* Me too!
+
+	do change_expression("deacon", "tired")
+	Deacon: …Really?
+
+	Wulfesh: Yup! I’m the one who makes the drinks around here!
+
+	do move_character("wulfesh", "center")
+	> They point at their nametag.
+
+	> This is Wulfesh, Cafeccino’s resident """""Barista""""". An ancient animals expert, coffee machine runner, and chaos bringer.
+
+	do change_expression("deacon", "thinking")
+	Deacon: Wolf…[wait=0.5] Fish?
+
+	do move_character("wulfesh", 340)
+	do change_expression("wulfesh", "default", "left")
+	Deacon: [color=#88b8eb][i]Is this what Inko was talking about?[/i][/color]
+
+	do change_expression("wulfesh", "excited", "right")
+	Wulfesh: Uh-huh!
+
+	do change_expression("deacon", "nervous")
+	Deacon: [color=#88b8eb][i]…Did they just hear my thoughts?![/i][/color]
+
+	do move_character("wulfesh", "left")
+	do change_expression("wulfesh", "excited")
+	Wulfesh: Are you here to help me make drinks?
+
+	do change_expression("deacon", "default")
+	Deacon: I guess? I wasn’t really given any directions. At all.
+
+	do move_character("wulfesh", "center")	
+	do change_expression("wulfesh", "default")
+	Wulfesh: Here, lemme give you the grand tour!
+
+else
+	do enter_character("deacon", "left", "default", 940)
+	do enter_character("wulfesh", "left", "default", "center")	
+
+do change_expression("wulfesh", "default", "left")
+> Crawling across the ground on all fours, Wulfesh leads Deacon around the kitchen.
+
+do change_expression("deacon", "tired")
+Deacon: [color=#88b8eb][i]This has to be some kind of health violation.[/i][/color]
+
+do change_expression("wulfesh", "excited")
+Wulfesh: Since this is a kitchen, we gots to keeps it clean in here!
+
+do change_expression("deacon", "nervous")
+Deacon: [color=#88b8eb][i]Huh?![/i][/color]
+
+do move_character("wulfesh", "left")
+do change_expression("wulfesh", "default")
+Wulfesh: You see these buckets?
+
+> Sure enough, there are buckets stationed around the kitchen. There are rags inside each one.
+
+do change_expression("deacon", "default")
+do change_expression("wulfesh", "default", "right")
+Wulfesh: You wipes the things down with the rags. It’s saaaaaanitary!
+
+Deacon: O-okay. I think I get the picture.
+
+do change_expression("wulfesh", "excited", "left")
+Wulfesh: They’re also really handy if you get thirsty.
+
+do change_expression("deacon", "tired")
+Deacon: I… don’t think you should do that.
+do change_expression("deacon", "default")
+do change_expression("wulfesh", "default")
+
+Wulfesh: Moving on!
+
+do move_character("wulfesh", 340)
+do move_character("deacon", "right")
+> A few feet down the line is a large, metallic contraption. A gentle gurgle can be heard as the two approach.
+
+do change_expression("wulfesh", "default", "right")
+Wulfesh: This is the hissy machine.
+
+>Translation\: The espresso machine.
+
+>The machine lets out a hiss.
+
+do change_expression("wulfesh", "hiss", "left")
+Wulfesh: *Hisses back.*
+
+do change_expression("wulfesh", "default", "right")
+Wulfesh: It’s mean. Best just to ignore it.
+
+do change_expression("deacon", "thinking")
+Deacon: But what if someone wants ex-presso?
+
+Wulfesh: What’s that?
+
+do change_expression("deacon", "default")
+Deacon: Hm?
+
+Wulfesh: What’s ex-presso?
+
+do change_expression("deacon", "thinking")
+Deacon: It’s…[wait=0.5] Uh…
+
+Deacon: It’s.[wait=0.5] Y’know.
+
+do change_expression("deacon", "default")
+Deacon: Hm.[wait=0.5] Huh.
+
+do change_expression("deacon", "thinking")
+Deacon: Coffee?[wait=0.5] I think?[wait=0.5] Not really sure.
+do change_expression("deacon", "default")
+
+do change_expression("wulfesh", "default", "left")
+Wulfesh: I don’t think the hissy machine likes coffee. I don’t think it likes anything.
+
+do change_expression("wulfesh", "hiss", "right")
+Wulfesh: Alls it knows how to do is hate.
+
+do change_expression("wulfesh", "default", "left")
+Deacon: Ah. I see.
+
+do change_expression("deacon", "tired")
+Deacon: [color=#88b8eb][i]How the hell does anything get done in here?[/i][/color]
+
+do change_expression("wulfesh", "excited", "right")
+Wulfesh: Okay, now let me show you how things get done here!
+
+do change_expression("deacon", "nervous")
+Deacon: [color=#88b8eb][i]…Am I losing it?[/i][/color]
+do change_expression("deacon", "default")
+
+Wulfesh: How to make orders,[wait=0.3] one-oh-one!
+
+do change_expression("wulfesh", "default")
+Wulfesh: When the order comes in…
+
+do change_expression("wulfesh", "excited")
+Wulfesh: …You make it!
+do change_expression("wulfesh", "default")
+Deacon: R-[wait=0.5]right.
+
+do change_expression("deacon", "nervous")
+Deacon: Any, uh. Any tips? 
+
+do change_expression("wulfesh", "excited")
+Wulfesh: Yes! Yes!
+
+Wulfesh: Tips get left in the jar at the register!
+
+do change_expression("deacon", "tired")
+Deacon: No. No, like, do you have any pointers?
+
+do change_expression("wulfesh", "default")
+Wulfesh: Pointers?
+
+do move_character("wulfesh", "center")
+> Wulfesh points a furry paw at Deacon’s face, and pokes him on the nose.
+do change_expression("wulfesh", "excited")
+do change_expression("deacon", "nervous")
+Wulfesh: Boop!
+
+do move_character("wulfesh", "left")
+Wulfesh: Booped ya snoot!
+do change_expression("wulfesh", "default")
+do change_expression("deacon", "tired")
+Deacon: Uh. Uuuuuuuuuh.
+
+do change_expression("deacon", "sad")
+Deacon: Thanks… for the help.
+
+do move_character("wulfesh", 340)
+do change_expression("wulfesh", "excited")
+Wulfesh: You’re welcome! Kitchen buddy~!
+
+do change_expression("deacon", "tired")
+Deacon: [color=#88b8eb][i]I gotta keep my guard up while I’m in here. If I’m not careful, I might just go crazy.[/i][/color]
+
+do change_expression("wulfesh", "default")
+Wulfesh: Yeah, going crazy [i]would[/i] be pretty bad.
+
+Deacon: …
+
+do change_expression("deacon", "nervous")
+Deacon: Wait.
+
+do fade_to_black()
+do exit_character("deacon")
+do exit_character("wulfesh")
+do wait(1.2)
 
 => END

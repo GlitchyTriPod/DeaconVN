@@ -265,8 +265,17 @@ do change_expression("cherry", "happy")
 Cherry: Thank you, Damien! You’re a real one!
 
 do change_expression("deacon", "annoyed")
-Deacon: [muttering] Cod, I can’t stand her…
+Deacon: [color=#88b8eb][i]Cod, I can’t stand her…[/i][/color]
 
+if met_wulfesh == true
+	do change_expression("deacon", "thinking")
+	Deacon: [color=#88b8eb][i]Actually, she probably just wants to avoid Wulfesh's hair in her drink...[/i][/color]
+	
+	Deacon: [color=#88b8eb][i]Does that make me less annoyed about it?[/i][/color]
+	
+	do change_expression("deacon", "annoyed")
+	Deacon: [color=#88b8eb][i]Nope.[/i][/color]
+	
 do fade_to_black()
 
 > After a few minutes, and more than a few burnt fingertips, Deacon completes Cherry’s order.

@@ -210,7 +210,10 @@ Inko: They hired Wulfesh, so they’ll take just about anyone.
 
 Inko: Why not try starting there?
 
-Deacon: …I guess it’s worth a shot.
+do change_expression("deacon", "thinking")
+Deacon: …I guess it’s worth a shot. Not too sure what a "Wolf Fish" is, though.
+do change_expression("deacon", "default")
+
 do change_expression("inko", "default")
 Inko: If you get stuck, lemme know. I’ll try to think of some other things you could try.
 
