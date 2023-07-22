@@ -3,6 +3,8 @@ extends Node
 func set_variable(var_name: String, value: Variant):
 	self[var_name] = value
 
+var got_paid = false
+
 # INKOS APT
 
 @onready var day_of_week: String:
@@ -72,6 +74,7 @@ func get_customer():
 	else:
 		self.customer = self.counter_customers[0]
 
-var watched_cafe_intro = true
+var watched_cafe_intro = false
 var met_wulfesh = false
-
+var threw_ball = false
+var did_work = false

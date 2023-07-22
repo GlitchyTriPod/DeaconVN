@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqdl2a0flgkso"]
+[gd_scene load_steps=22 format=3 uid="uid://cqdl2a0flgkso"]
 
 [ext_resource type="Script" path="res://autoload/AudioManager.gd" id="1_bjvct"]
 [ext_resource type="AudioStream" uid="uid://0wy7q1pjguaw" path="res://snd/sfx/sfx-blipfemale.wav" id="2_omh78"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://tos48px3fkjh" path="res://snd/sfx/sfx-realization.wav" id="15_twrwf"]
 [ext_resource type="AudioStream" uid="uid://bo8tam6wqdvcd" path="res://snd/music/3-11. Godot ~ The Fragrance Of Dark Coffee.mp3" id="16_gfvdk"]
 [ext_resource type="AudioStream" uid="uid://u6wcdhifgthc" path="res://snd/sfx/sfx-shooop.wav" id="16_utx00"]
+[ext_resource type="AudioStream" uid="uid://cyc4m3jw0s577" path="res://snd/sfx/sfx-swing.wav" id="17_4xexl"]
+[ext_resource type="AudioStream" uid="uid://6d6ab06nllss" path="res://snd/sfx/sfx-swoop.wav" id="18_57day"]
+[ext_resource type="AudioStream" uid="uid://uv7c4jvty2wc" path="res://snd/sfx/sfx-swoop2.wav" id="19_t7glf"]
 
 [node name="AudioManager" type="Node" groups=["Persist"]]
 script = ExtResource("1_bjvct")
@@ -38,6 +41,9 @@ sound_effects = {
 "shock2": ExtResource("5_km14p"),
 "shooop": ExtResource("16_utx00"),
 "stab": ExtResource("14_jqxnq"),
+"swing": ExtResource("17_4xexl"),
+"swoop": ExtResource("18_57day"),
+"swoop2": ExtResource("19_t7glf"),
 "whack": ExtResource("8_eng5c")
 }
 music_library = {

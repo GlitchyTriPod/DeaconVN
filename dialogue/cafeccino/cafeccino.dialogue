@@ -21,6 +21,7 @@ do enter_character("deacon", "left", "default", "OffscreenRight")
 	% Deacon: I can't cut my fingers at the counter. I think. 
 	#do exit_character("deacon")
 	=>< counter/counter
+	do did_work = true
 	=> cafeccino
 - Make orders.
 	% Deacon: I don't wanna talk to people. Kitchen it is.
@@ -31,6 +32,11 @@ do enter_character("deacon", "left", "default", "OffscreenRight")
 	=> END
 - Go somewhere else.
 	Deacon: It's not too busy right now... I'm sure the others can handle it.
+	
+	if did_work == true and got_paid == false
+		#do exit_character("deacon")
+		=>< ginger_payday
+	
 	do load_move_menu()
 	
 do exit_character("deacon")
@@ -278,6 +284,8 @@ Ginger: If I let you just walk out that door, something horrific would’ve happ
 
 Ginger: Take these.
 
+do play_sfx("shooop")
+do display_cg("judd_charm", 0.2)
 > Ginger hands Deacon a Cafeccino apron, as well as a small trinket.
 
 do change_expression("deacon", "default")
@@ -287,6 +295,7 @@ Deacon: What’s with this keychain?
 do change_expression("deacon", "bashful")
 
 Ginger: It’s a good luck charm! If you keep it on your person, I’m sure that curse of yours will be gone in no time!
+do hide_cg("judd_charm", 0.2)
 
 do change_expression("deacon", "nervous")
 
@@ -383,6 +392,79 @@ if met_wulfesh == false
 	do fade_from_black()
 	=>< wulfesh_intro
 	do fade_from_black()
+
+- Clean up the kitchen. [if threw_ball == false]
+	do enter_character("deacon", "left", "default", "center", "right")
+	Deacon: Wulfesh kinda made a mess of the place.
+	do change_expression("deacon", "thinking")
+	Deacon: ...Guess I could clean up. Gotta find [i]something[/i] to do around here.
+	
+	do change_expression("deacon", "default")
+	> Deacon starts tidying up the kitchen, starting with the pile of knocked-over utensils.
+	
+	do change_expression("deacon", "annoyed")
+	Deacon: Bleh. Hair everywhere.
+	
+	do play_sfx("realization")
+	do change_expression("deacon", "default")
+	Deacon: Huh?[wait=0.5] What's this?
+	
+	do play_sfx("shooop")
+	do display_cg("tennis_ball", 0.2)
+	> Hidden under the pile of kitchen implements is a small yellow-ish ball.
+	
+	> It fits in the palm of your hand, and is disturbingly moist.
+	
+	Deacon: What's with this ball?
+	do hide_cg("tennis_ball", 0.2)
+	
+	do enter_character("wulfesh", "right", "default", "offscreenleft")
+	do move_character("deacon", "right")
+	
+	Wulfesh: BALL?!?!
+	
+	do move_character("wulfesh", 340)
+	do wait(0.7)
+	do change_expression("wulfesh", "excited")
+	do change_expression("deacon", "nervous")
+	
+	Wulfesh: Did someone say BALL?!?!
+	
+	Deacon: Uh, yeah?
+	
+	do change_expression("deacon", "default")
+	do change_expression("wulfesh", "excited")
+	Deacon: I found this under all the kitchen stuff you knocked over.
+	
+	Deacon: It's kind of gross, though. Probably just some garbage.
+	
+	Deacon: Here, I'll take care of it.
+	
+	do play_sfx("swing")
+	do change_expression("wulfesh", "default", "left")
+	do move_character("wulfesh", "left")
+	> With a well-aimed toss, Deacon hurls the ball towards a nearby trash bin.
+	
+	do play_sfx("explosion")
+	do change_expression("deacon", "distress")
+	do change_expression("wulfesh", "hiss")
+	do shake_character("wulfesh", 0.7, 0.4)
+	Wulfesh: BALL!!!
+	
+	do play_sfx("swoop2")
+	do exit_character("wulfesh", "left")
+	
+	> Wulfesh goes sailing after the ball, and disappears into the back area of the kitchen.
+	
+	do change_expression("deacon", "nervous")
+	Deacon: Wh-[wait=0.5]what the hell just happened?
+	
+	do fade_to_black()
+	do wait(1.2)
+	do exit_character("deacon")
+	do fade_from_black()
+	
+	do threw_ball = true
 
 - Go back to Cafeccino.
 	do load_scene("cafeccino")
@@ -529,9 +611,9 @@ do move_character("deacon", "right")
 do change_expression("wulfesh", "default", "right")
 Wulfesh: This is the hissy machine.
 
->Translation\: The espresso machine.
+> Translation\: The espresso machine.
 
->The machine lets out a hiss.
+> The machine lets out a hiss.
 
 do change_expression("wulfesh", "hiss", "left")
 Wulfesh: *Hisses back.*
@@ -564,7 +646,7 @@ do change_expression("deacon", "default")
 do change_expression("wulfesh", "default", "left")
 Wulfesh: I don’t think the hissy machine likes coffee. I don’t think it likes anything.
 
-do change_expression("wulfesh", "hiss", "right")
+do change_expression("wulfesh", "hiss")
 Wulfesh: Alls it knows how to do is hate.
 
 do change_expression("wulfesh", "default", "left")
@@ -638,5 +720,112 @@ do fade_to_black()
 do exit_character("deacon")
 do exit_character("wulfesh")
 do wait(1.2)
+
+=> END
+
+~ ginger_payday
+
+do enter_character("deacon", "left", "default", 940, "right")
+
+Deacon: Okay, time to get out of here.
+
+do enter_character("ginger", "right", "nervous", "offscreenleft", "left")
+
+Ginger: Wait!
+
+do move_character("ginger", 340)
+do wait(0.7)
+
+Ginger: Are you leaving?
+
+do change_expression("deacon", "thinking")
+Deacon: I'm,[wait=0.5] uh,[wait=0.5] just taking a break?
+
+do change_expression("deacon", "default")
+do change_expression("ginger", "sad")
+Deacon: Things aren't too busy right now, so I figured I could step away for a bit.
+
+Ginger: Oh, is that so?
+
+do change_expression("ginger", "default")
+Ginger: Okay then, just don't stay out too long!
+
+do change_expression("deacon", "tired")
+do change_expression("ginger", "sad")
+Deacon: Actually, I might be out for a bit. I still gotta make some money.
+
+do change_expression("ginger", "default")
+Ginger: Money? Oh, is that what you were anxious about?
+
+do change_expression("ginger", "default")
+Ginger: Don't worry, your paycheck should come in the mail in a few days!
+
+do change_expression("deacon", "default")
+Deacon: Oh, for real? That's a relie-
+
+do play_sfx("stab")
+do shake_character("deacon")
+do change_expression("deacon", "nervous")
+do change_expression("ginger", "nervous")
+Deacon: Wait! No![wait=0.7] That doesn't work!
+
+do change_expression("ginger", "sad")
+Ginger: Oh, no! What's wrong?!
+
+do change_expression("deacon", "tired")
+Deacon: I,[wait=0.5] er,[wait=0.5] uh...
+
+Deacon: I kinda need that money,[wait=0.5] like,[wait=0.5] [i]today?[/i] If possible.
+
+Ginger: Hmmm...
+
+Ginger: ...
+
+Deacon: ...?
+
+do change_expression("deacon", "nervous")
+do change_expression("ginger", "default")
+do play_sfx("lightbulb")
+Ginger: ...Okay!
+
+Deacon: O-[wait=0.5]kay?
+
+do change_expression("ginger", "bashful")
+> Reaching into her apron pocket, Ginger pulls out her wallet.
+> And from her wallet, she pulls out a large bill!
+
+Ginger: Here!
+
+do shake_character("deacon")
+do play_sfx("whack")
+Deacon: No way! Are you serious?!
+
+Ginger: Of course!
+
+do change_expression("ginger", "sad")
+Ginger: Poor thing, I can feel the negative energies radiating off of you!
+
+Deacon: [i]Radiating...?[/i]
+
+do change_expression("ginger", "default")
+Ginger: If my reading is correct, this should spin your fate in...[wait=0.7] a more positive direction.
+
+Deacon: [i]Fate?[/i]
+
+do change_expression("deacon", "default")
+Deacon: A-[wait=0.3]Anyways! Thank you. I really, [i]really[/i] appreciate this.
+
+do change_expression("ginger", "bashful")
+Ginger: No worries! It's coming out of your next paycheck, anyways!
+
+do change_expression("deacon", "tired")
+Deacon: Right.
+
+do exit_character("deacon")
+do exit_character("ginger")
+
+do got_paid = true
+
+do wait(0.7)
 
 => END
