@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b1m1fihb162hc" path="res://res/img/bg/cafe.png" id="3_wi7t3"]
 [ext_resource type="Texture2D" uid="uid://bullnoud3da6w" path="res://res/img/items/cg_judd_charm_square.png" id="4_qasj0"]
 
-[node name="scene_debug" type="Node2D" groups=["Persist"]]
+[node name="scene_debug2" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_f85lq")
 scene_name = "cafeccino"
 startup_dialogue_resource = ExtResource("2_4br12")

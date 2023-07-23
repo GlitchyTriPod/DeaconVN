@@ -25,7 +25,7 @@ var got_paid = false
 			_:
 				return "Saturday"
 
-var watched_inko_apt_intro = true
+var watched_inko_apt_intro = false
 var asked_inko_for_help = false
 
 var inko_suggestions = [

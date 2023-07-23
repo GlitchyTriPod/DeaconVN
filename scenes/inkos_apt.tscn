@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bd86beqfboqw8" path="res://dialogue/inkos_apt.dialogue" id="2_g4k7g"]
 [ext_resource type="Texture2D" uid="uid://bnr2wi5nxqxek" path="res://res/img/bg/apartment.png" id="3_mk7aw"]
 
-[node name="scene_debug" type="Node2D" groups=["Persist"]]
+[node name="scene_debug2" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_ylld3")
 scene_name = "inkos_apt"
 startup_dialogue_resource = ExtResource("2_g4k7g")
