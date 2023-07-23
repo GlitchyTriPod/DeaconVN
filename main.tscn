@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://chv0pevbbe8ib"]
+
+[ext_resource type="Script" path="res://main_Testing.gd" id="1_3n615"]
+[ext_resource type="Shader" path="res://res/shader/scroll2D.gdshader" id="2_jcq8y"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_83440"]
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lswam"]
+shader = ExtResource("2_jcq8y")
+shader_parameter/motion = Vector2(0, 0)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/noise = SubResource("NoiseTexture2D_83440")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mjkjd"]
+noise_type = 0
+seed = 3
+frequency = 0.5785
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ivbnp"]
+seamless = true
+noise = SubResource("FastNoiseLite_mjkjd")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3n615")
+default_scene = "opening"
+
+[node name="Overlay" type="ColorRect" parent="."]
+top_level = true
+offset_left = -28.0
+offset_top = -36.0
+offset_right = 1341.0
+offset_bottom = 756.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+top_level = true
+material = SubResource("ShaderMaterial_lswam")
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 1307.0
+offset_bottom = 766.0
+texture = SubResource("NoiseTexture2D_ivbnp")

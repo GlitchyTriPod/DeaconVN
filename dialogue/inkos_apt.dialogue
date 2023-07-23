@@ -1,0 +1,270 @@
+~ inkos_apt
+
+do play_music("grossberg")
+
+if watched_inko_apt_intro == true
+	=> inko_apt_default
+
+do wait(1.2)
+do enter_character("deacon", "left", "distress", 940, "right")
+do enter_character("brie", "right", "angry", 340, "left")
+do wait(0.3)
+
+Brie: Bleu. What do you think you’re doing?
+
+do change_expression("deacon", "nervous")
+
+Deacon: Ah.[wait=0.2] Uh.[wait=0.2] R-relaxing? In my home?
+
+do change_expression("brie", "pointing")
+Brie: First of all, this isn’t even your home, you’re just staying here.
+
+> This is Brie De Meaux, a high ranking member of the infamous Splatville Triad, and currently overseeing Deacon’s massive amount of debt. 
+
+> She takes great pleasure in seeing him squirm.
+
+do change_expression("brie", "default")
+Brie: Second of all, are you aware of what day it is?
+
+- It's {{day_of_week}}?
+	do change_expression("deacon", "thinking")
+	Deacon: Is it {{day_of_week}}?
+
+	Brie: …
+	
+	do change_expression("brie", "annoyed")
+	Brie: You’re actually right, Somehow.
+
+	Deacon: Huh? I’m right?
+	
+	do change_expression("deacon", "nervous")
+	Deacon: Is my luck finally changing…?!
+	
+	do change_expression("brie", "default")
+	Brie: …Absolutely not.
+	
+- Squidmas?
+	do change_expression("deacon", "default")
+	Deacon: Is it Squidmas? I don’t think I can afford to buy a present this year…
+
+	Brie: It’s too early for that. Splatoween is in a few weeks.
+
+	Brie: Perhaps I should put your name down for the Triad secret santa…
+	
+	do change_expression("deacon", "distress")
+	Deacon: P-please don’t! I don’t think mobsters will like coupons…
+	
+- Your birthday?
+
+	Deacon: Don’t tell me…
+	do change_expression("deacon", "distress")
+	Deacon: It’s your birthday?! I-I’m so sorry! I forgot!
+
+	do change_expression("brie", "angry")
+	Brie: …
+	
+	do change_expression("deacon", "nervous")
+	Deacon: H-HAPPY BIRTHDAAAY!?
+	
+	do change_expression("brie", "annoyed")
+	Brie: …Disgusting.
+
+do change_expression("brie", "pointing")
+Brie: Clearly, you have absolutely no idea what day it is.
+
+Brie: Nor do you have any idea of the danger you’re in.
+do change_expression("deacon", "nervous")
+Deacon: D-D-D-Danger?!
+
+do change_expression("brie", "default")
+Brie: Bleu… today is…
+Brie: …Payment day.
+
+do change_expression("deacon", "default")
+Deacon: Pay…[wait=0.3] ment…?
+
+do play_sfx("lightbulb")
+Deacon: !!!
+do change_expression("deacon", "nervous")
+do play_sfx("stab")
+do shake_character("deacon", 0.5, 0.2)
+Deacon: Aah!
+
+Brie: Finally getting it?
+
+do change_expression("deacon", "distress")
+Deacon: Wait.[wait=0.3] Wai-wai-wai-wai-wait![wait=0.3] Wait!
+
+Deacon: I can’t do Turf War matches! We have to lay low right now! You said so yourself!
+
+Brie: You’re absolutely right.
+
+do change_expression("brie", "pointing")
+Brie: …But I didn’t tell you to stop making money.
+
+do change_expression("deacon", "nervous")
+Deacon: Well, what the hell am I supposed to do about that? How am I going to make any kind of money in just one day?!
+
+do change_expression("brie", "annoyed")
+Brie: I don’t know.[wait=0.1].[wait=0.1].[wait=0.3] And I don’t care.
+
+Brie: I’ll be nice, and give you until midnight. I’ll be at the Dhar estate if you need me. You know where it is.
+
+> Just as she’s about to leave, a friendlier face makes an appearance.
+
+do enter_character("inko", "right", "shocked", "farleft", "left")
+do wait(1.0)
+do move_character("brie", 470)
+do change_expression("brie", "default", "left")
+do wait(0.3)
+
+Brie: …Ms. Tachibana.
+
+do exit_character("brie", "left")
+do change_expression("deacon", "default")
+> Brie takes her leave.
+
+do move_character("inko", 340)
+
+do play_sfx("whack")
+Inko: What. 
+do play_sfx("deskslam")
+Inko: The fuck! 
+do play_sfx("dramapound")
+Inko: Happened?!
+do play_sfx("explosion")
+do shake_character("inko", 1, 0.2)
+Inko: TO THE DOOR?!
+
+> This is Inko Tachibana, sister of Mystic Hues superstar Ikataro Tachibana.
+
+> Also, Deacon’s friend, resident alcoholic (she’s working on it), and roommate.
+
+Inko: Dammit, not again!
+
+Inko: The landlord said he’s only paying for the first three in the month!
+
+Inko: Do you know how expensive doors are?!
+
+- Yes
+	do change_expression("deacon", "thinking")
+	Deacon: Yeah, actually I do.
+
+	do change_expression("inko", "default")
+	Inko: …You do?
+	
+	do change_expression("deacon", "tired")
+	Deacon: Sorry, I lied. I don’t.
+	do change_expression("deacon", "default")
+	
+	do change_expression("inko", "shocked")
+	
+- No
+	
+	Deacon: No idea.
+	
+Inko: Door prices right now are through the roof!
+
+Inko: That’s not where doors are supposed to be!
+
+Deacon: Sorry, Koko. Doors don’t stand much of a chance against a really determined mobster.
+do change_expression("deacon", "tired")
+Deacon: I’d pay for it, but…
+
+do change_expression("inko", "default")
+Inko: Yeah, yeah, I get it. We’re all broke as a joke.
+
+do change_expression("deacon", "default")
+Deacon: Well, there’s that, but I also need to make some quick cash.
+
+Deacon: Like, really quick.
+
+Deacon: And a lot of it.
+
+Inko: Wait, you owe more now?
+
+Deacon: No, not more.
+do change_expression("deacon", "sad")
+Deacon: [i]Not more.[/i]
+do change_expression("deacon", "default")
+Deacon: But it is kinda urgent.
+
+do change_expression("inko", "suggetion")
+Inko: Hm… Well, if it needs to be quick, you should probably just hit the streets.
+
+Inko: I’m sure there’s plenty of people who could give you a quick buck doing whatever.
+
+do change_expression("deacon", "tired")
+Deacon: Ehh? Walking?
+
+Deacon: My feet already hurt just thinking about it…
+
+do change_expression("inko", "shocked")
+Inko: A lot more than just your feet are gonna hurt if you don’t pay your mob money back.
+do change_expression("inko", "suggestion")
+
+do change_expression("deacon", "default")
+Inko: …Actually, now that I think about it, Cafeccino might be willing to give you some work.
+
+Inko: They hired Wulfesh, so they’ll take just about anyone.
+
+Inko: Why not try starting there?
+
+do change_expression("deacon", "thinking")
+Deacon: …I guess it’s worth a shot. Not too sure what a "Wolf Fish" is, though.
+do change_expression("deacon", "default")
+
+do change_expression("inko", "default")
+Inko: If you get stuck, lemme know. I’ll try to think of some other things you could try.
+
+
+> You are now controlling the world’s biggest loser.
+> Advance conversation with the space bar, or by clicking.
+> Stumble into new locations to find work.
+> Deacon’s life is now in your hands. 
+> Be kind.
+> Or don't. The choice is yours.
+
+do exit_character("deacon")
+do exit_character("inko")
+
+do set_variable("watched_inko_apt_intro", true)
+
+=> inko_apt_default
+
+=> END
+
+~ inko_apt_default
+
+> You are in Inko's apartment. What do you do?
+
+- Hit the streets.
+	do load_move_menu()
+	=> END
+- Ask Inko for suggestions.
+	do enter_character("deacon", "left", "default", 940, "right")
+	do enter_character("inko", "right", "default", 340, "left")
+	
+	if asked_inko_for_help == false	
+		Deacon: …
+		do change_expression("deacon", "distress")
+		do shake_character("deacon", 1, 0.3)
+		Deacon: UGHHH. Where the hell do I even start!!
+
+		do change_expression("deacon", "default")
+		Inko: Hey, don’t worry! We’ll find you somethin’. 
+	else
+		Deacon: Got anything else?
+
+	do change_expression("inko", "thinking")
+	Inko: Let’s see…
+	do change_expression("inko", "suggestion")
+
+	Inko: {{inko_suggestion}}
+	
+	do set_variable("asked_inko_for_help", true)
+	do exit_character("deacon")
+	do exit_character("inko")
+	
+=> inko_apt_default
+=> END

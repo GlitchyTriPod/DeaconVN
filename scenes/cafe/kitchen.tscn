@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfv5k6ds3wksc"]
+
+[ext_resource type="Script" path="res://scenes/Scene.gd" id="1_hpljy"]
+[ext_resource type="Resource" uid="uid://cih2ni3qqi4oj" path="res://dialogue/cafeccino/cafeccino.dialogue" id="2_putk3"]
+[ext_resource type="Texture2D" uid="uid://vxd0ym1j0ivw" path="res://res/img/bg/kitchen.png" id="3_78ppu"]
+[ext_resource type="Texture2D" uid="uid://cbcf3hm2xwisn" path="res://res/img/items/cg_tennis_ball.png" id="4_1fe68"]
+
+[node name="scene_debug" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_hpljy")
+scene_name = "cafe_kitchen"
+startup_dialogue_resource = ExtResource("2_putk3")
+startup_dialogue_title = "kitchen"
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.698039, 0.698039, 0.698039, 1)
+texture = ExtResource("3_78ppu")
+
+[node name="Label" type="Label" parent="Background"]
+visible = false
+modulate = Color(1, 1, 1, 0.372549)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 178.0
+offset_right = 5.0
+offset_bottom = 204.0
+rotation = -0.192284
+scale = Vector2(23.1432, 25.4977)
+text = "DEBUG"
+
+[node name="CharacterPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="OffscreenLeft" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(-266, 310)
+
+[node name="FarLeft" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(213, 310)
+
+[node name="Left" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(427, 310)
+
+[node name="Center" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(640, 310)
+
+[node name="Right" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(853, 310)
+
+[node name="FarRight" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(1067, 310)
+
+[node name="OffscreenRight" type="Marker2D" parent="CharacterPositions"]
+position = Vector2(1496, 310)
+
+[node name="CharacterContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CGs" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tennis_ball" type="TextureRect" parent="CGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 969.0
+offset_top = 40.0
+offset_right = 1321.0
+offset_bottom = 359.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_1fe68")

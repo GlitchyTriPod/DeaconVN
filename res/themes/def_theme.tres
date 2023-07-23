@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cyyjojvna3xqg"]
+
+[ext_resource type="FontFile" uid="uid://cfxfkcrqf3vpy" path="res://res/fonts/Splatoon2.otf" id="1_tbftp"]
+
+[sub_resource type="Gradient" id="Gradient_3qvr2"]
+offsets = PackedFloat32Array(0.247458, 1)
+colors = PackedColorArray(0.6916, 0.76, 0.75316, 1, 0.5928, 0.740493, 0.76, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_86d7j"]
+gradient = SubResource("Gradient_3qvr2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sckxd"]
+texture = SubResource("GradientTexture2D_86d7j")
+
+[sub_resource type="Gradient" id="Gradient_ydbsc"]
+offsets = PackedFloat32Array(0.247458, 1)
+colors = PackedColorArray(0.111197, 0.111197, 0.111197, 1, 0.169245, 0.169245, 0.169245, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m73m0"]
+gradient = SubResource("Gradient_ydbsc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0d7uc"]
+texture = SubResource("GradientTexture2D_m73m0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6714q"]
+
+[resource]
+Button/colors/font_focus_color = Color(0.317647, 0.427451, 0.6, 1)
+Button/colors/font_hover_color = Color(0.317647, 0.427451, 0.6, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 7
+Button/font_sizes/font_size = 29
+Button/fonts/font = ExtResource("1_tbftp")
+Button/styles/focus = SubResource("StyleBoxTexture_sckxd")
+Button/styles/hover = SubResource("StyleBoxTexture_sckxd")
+Button/styles/normal = SubResource("StyleBoxTexture_0d7uc")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6714q")
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 7
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 25
+RichTextLabel/fonts/normal_font = ExtResource("1_tbftp")
