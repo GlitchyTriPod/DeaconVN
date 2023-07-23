@@ -1,7 +1,1 @@
 res://default_bus_layout.tres
-res://char/deacon.tscn
-res://res/themes/def_theme.tres
-res://res/shader/scroll2D.gdshader
-res://addons/dialogue_manager/dialogue_resource.gd
-res://autoload/SceneManager.gd
-res://autoload/FlagManager.gd
