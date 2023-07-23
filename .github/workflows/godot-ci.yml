@@ -8,10 +8,10 @@ env:
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  # push:
-  #   branches: [ main ] 
- pull_request:
-   branches: [ main ]
+  #push:
+   # branches: [ main ] 
+ # pull_request:
+  #  branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -48,5 +48,6 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          # BRANCH: main # The branch the action should deploy to.
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #BRANCH: main # The branch the action should deploy to.
           FOLDER: build/web # The folder the action should deploy.
