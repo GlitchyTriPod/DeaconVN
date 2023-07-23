@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhmmu66mhyptc"]
-
-[ext_resource type="Script" path="res://autoload/FlagManager.gd" id="1_tqfwa"]
-
-[node name="FlagManager" type="Node" groups=["Persist"]]
-script = ExtResource("1_tqfwa")
