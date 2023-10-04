@@ -1,1 +1,5 @@
 res://default_bus_layout.tres
+res://addons/dialogue_manager/dialogue_resource.gd
+res://autoload/SceneManager.gd
+res://autoload/FlagManager.gd
+res://char/Character.gd
