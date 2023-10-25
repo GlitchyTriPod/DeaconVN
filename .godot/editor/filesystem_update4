@@ -1,1 +1,4 @@
 res://default_bus_layout.tres
+res://main.tscn
+res://res/themes/def_theme.tres
+res://res/shader/scroll2D.gdshader
