@@ -1,4 +1,6 @@
 # This is a basic workflow to help you get started with Actions
+# TODO: rerun this entire setup in windows to address shader issues present when building on ubuntu
+#   at least????? thats what i think is happening???????
 
 name: CI
 
