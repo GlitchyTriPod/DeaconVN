@@ -24,7 +24,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:latest
+      image: barichello/godot-ci:4.1.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
