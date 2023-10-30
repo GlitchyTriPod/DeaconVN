@@ -17,7 +17,7 @@ do change_expression("deacon", "nervous")
 Deacon: Ah.[wait=0.2] Uh.[wait=0.2] R-relaxing? In my home?
 
 do change_expression("brie", "pointing")
-Brie: First of all, this isn’t even your home, you’re just staying here.
+Brie: First of all, this isn’t even your home. You’re just staying here.
 
 > This is Brie De Meaux, a high ranking member of the infamous Splatsville Triad, and currently overseeing Deacon’s massive amount of debt. 
 
