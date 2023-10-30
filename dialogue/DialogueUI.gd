@@ -3,11 +3,15 @@ class_name DialogueUI extends CanvasLayer
 signal ready_for_dialogue
 signal dialogue_exiting
 
+const OptionsMenu = preload("res://menu/OptionsMenu.tscn")
+
 @onready var dialogue_box: TextureRect = %Dia_Box
 @onready var character_name: RichTextLabel = %Name
 @onready var dialogue_label = %DialogueLabel
 @onready var response_box = %ResponseBox
 @onready var response_template: Button = %ResponseTemplate
+@onready var options_button: Button = %Options
+@onready var overlay = %overlay
 
 # the diaglogue resource
 var dialogue_res: DialogueResource
@@ -17,6 +21,9 @@ var temporary_game_states: Array = []
 
 # prevents dialogue from proceeding when using the skip command
 var dialogue_finished_typing = false
+
+# prevents dialogue from proceeding while the options menu is open
+var options_menu_open = false
 
 # the current dialogue line
 var dialogue_line: DialogueLine:
@@ -99,6 +106,8 @@ var dialogue_line: DialogueLine:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.options_button.self_modulate = Color("#ffffff00")
+
 	self.dialogue_box.material.set_shader_parameter("transparent_ratio", 3.5)
 
 	self.response_template.hide()
@@ -107,6 +116,13 @@ func _ready():
 	self.dialogue_label.text = ""
 
 	var tween = create_tween()
+	tween.tween_property(
+		self.options_button,
+		"self_modulate",
+		Color("#ffffff"),
+		1
+	)
+
 	await tween.tween_method( \
 		tween_method_helper, \
 		3.5,
@@ -155,7 +171,8 @@ func _on_dialogue_label_finished_typing():
 	self.dialogue_finished_typing = true
 
 func _on_dialogue_label_continue_dialogue():
-	if self.dialogue_line.responses.size() == 0:
+	if self.dialogue_line.responses.size() == 0 && \
+		!self.options_menu_open:
 		next(self.dialogue_line.next_id)
 
 func _on_response_button_up(item: Button):
@@ -166,8 +183,15 @@ func _on_response_button_up(item: Button):
 	next(self.dialogue_line.responses[index].next_id)
 
 func delete_self():
+	self.options_button.disabled = true
 	
 	var tween = create_tween()
+	tween.tween_property(self.options_button, 
+		"self_modulate",
+		Color("#ffffff00"), \
+		0.5
+	)
+
 	tween.tween_property(self.dialogue_label, 
 		"modulate",
 		Color("#ffffff00"), \
@@ -190,3 +214,38 @@ func delete_self():
 	self.dialogue_exiting.emit()
 
 	queue_free()
+
+func _on_options_button_up():	
+	get_node("/root/AudioManager").play_sfx("selectblip2")
+	self.options_menu_open = true
+
+	self.options_button.disabled = true
+
+	self.options_button.grab_focus()
+	self.options_button.release_focus()
+
+	var options_menu = OptionsMenu.instantiate()
+
+	options_menu.get_node("Control").modulate = Color("#ffffff00")
+
+	options_menu.connect("tree_exiting", func():
+		var tween = create_tween()
+		tween.tween_property( \
+			self.overlay, \
+			"modulate", \
+			Color("#ffffff00"), \
+			0.5 \
+			)
+
+		self.options_button.disabled = false
+		self.options_menu_open = false
+	)
+
+	var tween = create_tween()
+	tween.tween_property( \
+		self.overlay,
+		"modulate",
+		Color("#ffffffff"), \
+		0.5 )
+
+	self.add_child(options_menu)

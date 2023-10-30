@@ -26,6 +26,17 @@ offset_bottom = 652.0
 texture = ExtResource("2_sp74p")
 stretch_mode = 2
 
+[node name="Options" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.0101562
+anchor_right = 0.0796875
+anchor_bottom = 0.0819444
+theme = ExtResource("5_ve51h")
+text = "Options
+"
+metadata/_edit_use_anchors_ = true
+
 [node name="Dia_Box" type="TextureRect" parent="."]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_vgjq1")
@@ -121,5 +132,17 @@ theme = ExtResource("5_ve51h")
 theme_override_font_sizes/font_size = 41
 text = "This is a typical response option."
 
+[node name="overlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.435294)
+
+[connection signal="button_up" from="Options" to="." method="_on_options_button_up"]
 [connection signal="continue_dialogue" from="Dia_Box/Margin/VBox/DialogueLabel" to="." method="_on_dialogue_label_continue_dialogue"]
 [connection signal="finished_typing" from="Dia_Box/Margin/VBox/DialogueLabel" to="." method="_on_dialogue_label_finished_typing"]
