@@ -4,6 +4,8 @@ name: CI
 
 env:
   GODOT_VERSION: 4.1
+  ITCH_USERNAME: GlitchyTriPod
+  ITCH_GAME_ID: deacon-bleu-needs-money
   
 # Controls when the workflow will run
 on:
@@ -38,10 +40,23 @@ jobs:
           godot -v --headless --export-release "Web" ./build/web/index.html
           cp -v ./enable-threads.js ./build/web
       - name: Upload Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: web
           path: build/web
+      - name: Download Artifact
+        uses: actions/download-artifact@v3.0.2
+        with:
+          name: web
+          path: build/web-zip
+      - name: Deploy - Itch.io
+        uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: build/web-zip
+          itchUsername: ${{env.ITCH_USERNAME}}
+          itchGameId: ${{env.ITCH_GAME_ID}}
+          buildChannel: 'html'
       # Installing rsync is needed in order to deploy to GitHub Pages. Without it, the build will fail.
       - name: Install rsync 📚
         run: |

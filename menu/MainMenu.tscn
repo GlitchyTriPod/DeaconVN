@@ -31,6 +31,7 @@ offset_top = 3.05176e-05
 grow_vertical = 0
 
 [node name="NewGame" type="Button" parent="Control/VBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_36br0")
 text = "New Game"
@@ -41,6 +42,13 @@ theme = ExtResource("1_36br0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdter")
 disabled = true
 text = "Load Game"
+
+[node name="Options" type="Button" parent="Control/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_36br0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdter")
+text = "Options"
 
 [node name="Label" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -62,4 +70,16 @@ text = "[center]Deacon Bleu
 Needs Money[/center]"
 scroll_active = false
 
+[node name="overlay" type="ColorRect" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.435294)
+
 [connection signal="button_up" from="Control/VBox/NewGame" to="." method="_on_new_game_button_up"]
+[connection signal="button_up" from="Control/VBox/Options" to="." method="_on_options_button_up"]

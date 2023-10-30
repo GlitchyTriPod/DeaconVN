@@ -1,4 +1,13 @@
 res://default_bus_layout.tres
-res://main.tscn
+res://menu/MainMenu.gd
+res://menu/OptionsMenu.gd
+res://menu/OptionsMenu.tscn
 res://res/themes/def_theme.tres
+res://res/shader/gaussian_blur.tres
 res://res/shader/scroll2D.gdshader
+res://autoload/SceneManager.tscn
+res://autoload/CharacterManager.tscn
+res://autoload/AudioManager.tscn
+res://scenes/cafe/cafe.tscn
+res://main.tscn
+res://menu/MainMenu.tscn
