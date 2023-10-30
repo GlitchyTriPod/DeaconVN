@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cyyjojvna3xqg"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cyyjojvna3xqg"]
 
 [ext_resource type="FontFile" uid="uid://cfxfkcrqf3vpy" path="res://res/fonts/Splatoon2.otf" id="1_tbftp"]
 
@@ -30,6 +30,9 @@ texture = SubResource("GradientTexture2D_m73m0")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6714q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1j34"]
+bg_color = Color(0.517647, 0.541176, 1, 1)
+
 [resource]
 Button/colors/font_focus_color = Color(0.317647, 0.427451, 0.6, 1)
 Button/colors/font_hover_color = Color(0.317647, 0.427451, 0.6, 1)
@@ -41,6 +44,11 @@ Button/styles/focus = SubResource("StyleBoxTexture_sckxd")
 Button/styles/hover = SubResource("StyleBoxTexture_sckxd")
 Button/styles/normal = SubResource("StyleBoxTexture_0d7uc")
 Button/styles/pressed = SubResource("StyleBoxEmpty_6714q")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_l1j34")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_tbftp")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 7
 RichTextLabel/font_sizes/italics_font_size = 24
