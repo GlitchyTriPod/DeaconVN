@@ -3,7 +3,7 @@
 name: CI
 
 env:
-  GODOT_VERSION: 4.1
+  GODOT_VERSION: 4.1.2
   ITCH_USERNAME: GlitchyTriPod
   ITCH_GAME_ID: deacon-bleu-needs-money
   
@@ -24,7 +24,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.1.2
+      image: barichello/godot-ci:latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
