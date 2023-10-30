@@ -10,3 +10,6 @@ res://scenes/cafe/cafe.tscn
 res://main.tscn
 res://menu/OptionsMenu.tscn
 res://dialogue/DialogueUI.tscn
+res://dialogue/DialogueUI.gd
+res://addons/dialogue_manager/dialogue_manager.gd
+res://menu/MainMenu.gd
